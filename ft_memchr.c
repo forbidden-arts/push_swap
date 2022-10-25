@@ -6,9 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:04:28 by dan               #+#    #+#             */
-/*   Updated: 2022/10/24 19:18:14 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/25 09:17:07 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	
+}
