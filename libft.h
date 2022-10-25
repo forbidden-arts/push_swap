@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:02:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 09:15:15 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/25 09:52:12 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 void	*ft_memset(void *b, int c, size_t len);
-
+char	*strchr(const char *s, int c);
+char	*strrchr(const char *s, int c);
 
 #endif
