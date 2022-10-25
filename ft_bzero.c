@@ -6,11 +6,11 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 08:51:48 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 09:14:38 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/25 16:18:52 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

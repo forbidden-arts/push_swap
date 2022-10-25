@@ -6,11 +6,11 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:51:38 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 11:28:43 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/25 16:18:52 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*strrchr(const char *s, int c)
 {
