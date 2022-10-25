@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:51:38 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 09:55:04 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/25 11:28:43 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ char	*strrchr(const char *s, int c)
 	last = 0;
 	if (c == '/0')
 		return ((char *)s);
-	while (*s)
-	{
+	while (*(s++))
 		if (*s == c)
 			last = ((char *)s);
-		s++;
-	}
 	return (last);
 }
