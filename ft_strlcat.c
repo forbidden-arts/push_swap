@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:20:19 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 16:18:52 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 07:33:14 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* Concatenates two strings, if possible, and returns the dest string length. */
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

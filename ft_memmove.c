@@ -6,11 +6,16 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:44:48 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 16:18:52 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 07:27:45 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*  This function performs three checks: First, if the destination already
+matches the source, it simply returns. Second, if the destination begins after
+the source, the while loop is reversed (decrimented) to remove the chance that
+incorrect information is copied. Otherwise the loop is performed normally.  */
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

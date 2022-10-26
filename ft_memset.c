@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 08:56:07 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 16:18:52 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 07:29:41 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Loops LEN number of times and applies the value of INT c as an unsigned char.
 
 void	*ft_memset(void *b, int c, size_t len)
 {

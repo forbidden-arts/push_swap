@@ -6,14 +6,15 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 08:04:37 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 19:36:19 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 07:18:41 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* 	The standard AtoI breaks on numbers greater than (-)9223372036854775807(8) 
-(outside of the LONG LONG range) and only returns -1 thereafter.	*/
+/*  The standard AtoI breaks on numbers greater than (-)9223372036854775807(8) 
+(outside of the LONG LONG range) and only returns -1 thereafter. This 
+implimentation will continue to function without regard to the upper limit.  */
 
 int	ft_atoi(const char *str)
 {
