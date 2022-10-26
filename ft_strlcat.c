@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:20:19 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 07:33:14 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 19:12:38 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,20 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
-	size_t	src_len;
-	size_t	dst_len;
+	size_t	s_len;
+	size_t	d_len;
 
-	i = 0;
-	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);
-	j = dst_len;
-	if (dstsize == 0 || dstsize < dst_len)
-		return (src_len + dstsize);
-	while (src[i] && (dst_len + i) < dstsize)
-		dst[j++] = src[i++];
-	dst[j] = '\0';
-	return (src_len + dst_len);
+	j = 0;
+	d_len = ft_strlen(dst);
+	s_len = ft_strlen(src);
+	i = d_len;
+	if (dstsize == 0 || dstsize < d_len)
+		return (s_len + dstsize);
+	while (src[j] && (d_len + j) < dstsize)
+		dst[i++] = src[j++];
+	if ((d_len + j) == dstsize && d_len < dstsize)
+		dst[i - 1] = '\0';
+	else
+		dst[i] = '\0';
+	return (s_len + d_len);
 }
