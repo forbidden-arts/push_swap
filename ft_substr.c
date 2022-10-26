@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 09:26:49 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 12:27:07 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/26 10:22:48 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/10/26 11:04:38 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Finds the first instance of a char in a string. Otherwise returns NULL
-
-char	*ft_strchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (c == '\0')
-		return ((char *)s);
-	while (*(s++))
-		if (*s == c)
-			return ((char *)s);
-	return (0);
+	char	*sub;
+
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (NULL);
+	ft_memmove(sub, &s[start], len);
+	sub[len] = '\0';
+	return (sub);
 }

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 09:26:49 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 12:27:07 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/26 11:05:47 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/10/26 11:19:16 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Finds the first instance of a char in a string. Otherwise returns NULL
-
-char	*ft_strchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (c == '\0')
-		return ((char *)s);
-	while (*(s++))
-		if (*s == c)
-			return ((char *)s);
-	return (0);
+	char	*result;
+
+	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	
 }

@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:18:28 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 16:18:52 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 10:48:58 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	if (!dst || !src)
 		return (0);
 	while (n--)
-		dst2[n] = src2[n];
+		*(dst2++) = *(src2++);
 	return (dst);
 }

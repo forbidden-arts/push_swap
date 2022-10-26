@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:02:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 10:19:23 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 11:05:33 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ int		ft_toupper(int c);
 
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
