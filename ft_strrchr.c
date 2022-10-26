@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:51:38 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/25 16:18:52 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 10:19:11 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*last;
 
