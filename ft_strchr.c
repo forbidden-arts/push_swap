@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:26:49 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 12:27:07 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/26 16:37:45 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (c == '\0')
-		return ((char *)s);
-	while (*(s++))
-		if (*s == c)
-			return ((char *)s);
-	return (0);
+	char	*chr;
+
+	chr = (char *)s;
+	while (*chr != c)
+	{
+		if (!*chr)
+			return (NULL);
+		chr++;
+	}
+	return (chr);
 }
