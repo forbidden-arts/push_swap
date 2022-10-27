@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:22:48 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 11:04:38 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 09:23:13 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = (char *)malloc(sizeof(char) * (len + 1));
 	if (!sub)
 		return (NULL);
+	if (start >= ft_strlen(s))
+		return (sub);
 	ft_memmove(sub, &s[start], len);
 	sub[len] = '\0';
 	return (sub);

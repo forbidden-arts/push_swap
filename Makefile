@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/10/26 14:13:18 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/10/27 09:10:11 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS =	ft_atoi.c		\
 		ft_toupper.c	\
 		ft_calloc.c		\
 		ft_strdup.c		\
+		ft_substr.c		\
 
 
 # SRCSB =	ft_lstnew.c			\
