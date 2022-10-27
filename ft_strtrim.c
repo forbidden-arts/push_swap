@@ -6,24 +6,24 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:03:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 12:08:47 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 16:15:15 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Allocate and return string trimmed of leading and trailing given characters.
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*beg;
-	char	*end;
-
+	const char	*beg;
+	const char	*end;
 
 	if (!s1 || !set)
 		return (NULL);
 	beg = s1;
-	end = s1[ft_strlen(s1) - 1];
-
-	
+	end = s1 + ft_strlen(s1);
+	while (ft_strchr(set, *beg) && beg <= end)
+		beg++;
+	while (ft_strchr(set, *end) && beg <= end)
+		end--;
+	return (ft_substr(s1, beg - s1, end - beg + 1));
 }
