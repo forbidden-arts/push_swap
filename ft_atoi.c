@@ -6,21 +6,19 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 08:04:37 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 08:14:58 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 15:31:01 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*  The standard AtoI breaks on numbers greater than (-)9223372036854775807(8) 
-(outside of the LONG LONG range) and only returns -1 thereafter. This 
-implimentation will continue to function without regard to the upper limit.  */
+/*  Per the manual, this is run as a LONG and then recast into an INT.  */
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sum;
-	int	sign;
+	int		i;
+	long	sum;
+	int		sign;
 
 	i = 0;
 	sum = 0;
@@ -30,6 +28,12 @@ int	ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 		sign = 1 - 2 * (str[i++] == '-');
 	while (str[i] >= '0' && str[i] <= '9')
+	{
+		if (sum >= LONG_MAX / 10 && str[i + 1] > 7 && sign == 1)
+			return (-1);
+		else if (sum >= LONG_MAX / 10 && str[i + 1] > 8 && sign == -1)
+			return (0);
 		sum = 10 * sum - (str[i++] - '0');
-	return (sum * -sign);
+	}
+	return ((int)sum * -sign);
 }
