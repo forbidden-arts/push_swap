@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:35:39 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 19:02:53 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 09:01:34 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	s_len;
 
 	i = 0;
-	if (!src)
+	if (!src && dstsize == 0)
 		return (0);
 	s_len = ft_strlen(src);
-	if (!dstsize)
-		return (s_len);
 	while (src[i] != '\0' && i < dstsize)
 	{
 		dst[i] = src[i];
