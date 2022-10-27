@@ -6,26 +6,31 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:38:00 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 19:09:25 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 19:48:18 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_count(char *str, char c)
+static int	word_count(char const *s, char c)
 {
-	int	i;
-	int	count;
+	int		words;
+	char	*str;
 
-	i = 0;
-	count = 0;
-	while (str[i])
+	words = 0;
+	str = (char *)s;
+	while (*str)
 	{
-		if ((str[i] != c && i == 0) || (str[i] != c && str[i - 1] == c))
-			count++;
-		i++;
+		while (*str == c)
+			str++;
+		if (*str)
+		{
+			while (*str && *str != c)
+				str++;
+			words++;
+		}
 	}
-	return (count);
+	return (words);
 }
 
 static int	wrdlen(char *str, char c)
