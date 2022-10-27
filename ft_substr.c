@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:22:48 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 09:23:13 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 11:08:59 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Allocates and returns a string from a given starting point.
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

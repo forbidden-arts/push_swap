@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 07:34:30 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 18:27:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 11:06:52 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Compares two strings up to a specified limit.
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

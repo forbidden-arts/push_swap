@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 07:39:43 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 09:04:08 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 11:07:39 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Returns whether a string is contained within another string
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

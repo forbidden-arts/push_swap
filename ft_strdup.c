@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:06:36 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 08:47:11 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 11:05:37 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Allocates memory and returns a duplicate of a string
 
 char	*ft_strdup(const char *s1)
 {

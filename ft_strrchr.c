@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:51:38 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/26 16:54:45 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 11:08:08 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Finds the last occurrence of a character within a string.
 
 char	*ft_strrchr(const char *s, int c)
 {

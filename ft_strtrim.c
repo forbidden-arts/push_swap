@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 08:31:02 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 11:55:12 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/27 11:03:53 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/10/27 11:20:15 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
+// Allocate and return string trimmed of leading and trailing given characters.
 
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int		i;
+	int		size;
+	char	*src;
+	char	*dst;
+
+	src = (char *)s1;
+	
+	i = 0;
 }

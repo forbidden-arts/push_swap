@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:05:47 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 09:51:35 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 11:06:04 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Allocates memory and returns the concatenation of two strings.
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

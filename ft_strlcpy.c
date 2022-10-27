@@ -6,11 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:35:39 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 09:01:34 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/27 11:06:28 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Copies a string up to a specified size.
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
