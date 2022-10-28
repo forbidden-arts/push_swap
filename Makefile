@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/10/28 11:58:08 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/10/28 12:15:48 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,8 @@ SRCS =	ft_atoi.c		\
 		ft_striteri.c	\
 		ft_putchar_fd.c	\
 		ft_putstr_fd.c	\
+		ft_putendl_fd.c	\
+		ft_putnbr_fd.c	\
 
 # SRCSB =	ft_lstnew.c			\
 # 		ft_lstadd_front.c	\
