@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:55:58 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/28 11:57:38 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/28 12:01:33 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (s)
+	while (*s != '\0')
 	{
 		ft_putchar_fd(*s, fd);
 		s++;
