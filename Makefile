@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/10/28 18:34:56 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/10/28 18:55:56 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ SRCS =	ft_atoi.c		\
 			ft_lstadd_back_bonus.c	\
 			ft_lstdelone_bonus.c	\
 			ft_lstclear_bonus.c		\
+			ft_lstiter_bonus.c		\
+			ft_lstmap_bonus.c		\
 			$(SRCS)
 
 # Text Decoration Defs
