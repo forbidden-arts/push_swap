@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:59:10 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/28 11:13:59 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/28 12:05:26 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	int		len;
 
+	if (!s || !(*f))
+		return (NULL);
 	str = (char *)s;
 	i = 0;
 	len = ft_strlen(str);
