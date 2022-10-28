@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 08:04:37 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 15:31:01 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/28 11:49:46 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 /*  Per the manual, this is run as a LONG and then recast into an INT.  */
 
+#define ULONG_MAX (unsigned long) -1
+
 int	ft_atoi(const char *str)
 {
-	int		i;
-	long	sum;
-	int		sign;
+	int			i;
+	long		sum;
+	int			sign;
+	const long	long_max = (ULONG_MAX - 1) / 2;
 
 	i = 0;
 	sum = 0;
@@ -29,9 +32,9 @@ int	ft_atoi(const char *str)
 		sign = 1 - 2 * (str[i++] == '-');
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (sum >= LONG_MAX / 10 && str[i + 1] > 7 && sign == 1)
+		if (sum >= long_max / 10 && str[i + 1] > 7 && sign == 1)
 			return (-1);
-		else if (sum >= LONG_MAX / 10 && str[i + 1] > 8 && sign == -1)
+		else if (sum >= long_max / 10 && str[i + 1] > 8 && sign == -1)
 			return (0);
 		sum = 10 * sum - (str[i++] - '0');
 	}
