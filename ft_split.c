@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:38:00 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 19:48:18 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/28 09:09:39 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	str = (char *)s;
 	w_count = word_count(str, c);
-	result = (char **)malloc(sizeof(char *) * w_count);
+	result = (char **)ft_calloc(w_count + 1, sizeof(char *));
 	if (!result)
 		return (NULL);
 	while (i < w_count)
 	{
 		while (*str == c)
 			str++;
-		result[i] = (char *)malloc(sizeof(char) * (wrdlen(str, c) + 1));
+		result[i] = (char *)ft_calloc(wrdlen(str, c) + 1, sizeof(char));
 		ft_strlcpy(result[i], ft_substr(str, 0, wrdlen(str, c)),
 			wrdlen(str, c) + 1);
 		str += (wrdlen(str, c) + 1);
