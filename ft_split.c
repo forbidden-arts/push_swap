@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:38:00 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/28 09:09:39 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 19:10:20 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ static int	wrdlen(char *str, char c)
 	return (i);
 }
 
+/* Notes for future improvement: To avoid the 25 line limit, this function
+could run in reverse and save at least two lines by dropping the iterator. 
+Could also move the allocation in to a separate function. */
+
 char	**ft_split(char const *s, char c)
 {
 	int		w_count;
@@ -60,15 +64,16 @@ char	**ft_split(char const *s, char c)
 	result = (char **)ft_calloc(w_count + 1, sizeof(char *));
 	if (!result)
 		return (NULL);
-	while (i < w_count)
+	while (i++ < w_count)
 	{
 		while (*str == c)
 			str++;
-		result[i] = (char *)ft_calloc(wrdlen(str, c) + 1, sizeof(char));
-		ft_strlcpy(result[i], ft_substr(str, 0, wrdlen(str, c)),
+		result[i - 1] = (char *)ft_calloc(wrdlen(str, c) + 1, sizeof(char));
+		if (!result[i - 1])
+			return (NULL);
+		ft_strlcpy(result[i - 1], ft_substr(str, 0, wrdlen(str, c)),
 			wrdlen(str, c) + 1);
 		str += (wrdlen(str, c) + 1);
-		i++;
 	}
 	return (result);
 }

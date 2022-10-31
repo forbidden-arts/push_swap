@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/10/29 08:42:42 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/10/31 19:13:39 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ CC_FLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
-	$(info $(b_green)Compiling:$(reset) $<)
+	$(info $(b_green)Compiling:$(b_yellow) $<$(reset))
 	@cc $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
@@ -117,4 +117,4 @@ re: fclean all
 
 bonus: $(OBJECTS_BONUS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
-	$(info $(b_magenta)$(bold)LIBFT COMPILED SUCCESSFULLY$(reset))
+	$(info $(b_magenta)$(bold)LIBFT+BONUS COMPILED SUCCESSFULLY$(reset))
