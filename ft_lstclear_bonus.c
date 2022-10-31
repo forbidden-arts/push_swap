@@ -6,17 +6,19 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:30:48 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/28 18:46:31 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 14:08:39 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_bonus.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*temp;
 	t_list	*list;
 
+	if (!lst || !del)
+		return ;
 	list = *lst;
 	while (list)
 	{

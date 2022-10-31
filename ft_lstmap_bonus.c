@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:55:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/29 08:38:55 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 14:14:18 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*temp;
 	t_list	*result;
 
-	if (!lst || !f)
+	if (!lst || !f || !del)
 		return (NULL);
 	temp = ft_lstnew(f(lst->content));
 	result = temp;

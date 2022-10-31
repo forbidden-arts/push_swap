@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 07:39:43 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 11:07:39 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 14:16:10 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			return (str + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
