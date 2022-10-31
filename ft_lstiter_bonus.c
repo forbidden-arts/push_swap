@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:48:49 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/28 18:53:22 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 16:42:31 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*temp;
-
-	temp = lst;
 	if (!lst)
 		return ;
-	while (temp)
+	while (lst)
 	{
-		(*f)(temp->content);
-		temp = temp->next;
+		(*f)(lst->content);
+		lst = lst->next;
 	}
 }

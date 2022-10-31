@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:13:21 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/31 16:09:35 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 16:40:01 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*temp;
-
 	if (!lst || !new)
 		return ;
-	temp = new;
-	temp->next = *lst;
-	*lst = temp;
+	new->next = *lst;
+	*lst = new;
 }
