@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:04:28 by dan               #+#    #+#             */
-/*   Updated: 2022/10/26 15:08:01 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 16:15:32 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)s + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
