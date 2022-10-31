@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:55:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/31 18:46:40 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 19:47:56 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,17 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f || !del)
 		return (NULL);
-	temp = ft_lstnew(f(lst->content));
-	result = temp;
-	lst = lst->next;
+	result = NULL;
 	while (lst)
 	{
-		temp->next = ft_lstnew(f(lst->content));
-		if (!temp->next)
+		temp = ft_lstnew(f(lst->content));
+		if (!temp)
 		{
-			ft_lstclear(&result, del);
+			ft_lstdelone(temp, del);
 			return (NULL);
 		}
-		temp = temp->next;
+		ft_lstadd_back(&result, temp);
 		lst = lst->next;
 	}
-	temp->next = NULL;
 	return (result);
 }
