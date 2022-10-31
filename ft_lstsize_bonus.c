@@ -6,11 +6,11 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:24:15 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/28 14:31:53 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/10/31 18:46:50 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {
