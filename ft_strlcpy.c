@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:35:39 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/27 11:06:28 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/02 18:54:17 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = src[i];
 		i++;
 	}
-	if (dstsize < s_len)
+	if (dstsize <= s_len)
 		dst[dstsize - 1] = '\0';
-	else if (dstsize != 0)
+	else
 		dst[i] = '\0';
 	return (s_len);
 }
