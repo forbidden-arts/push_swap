@@ -6,15 +6,14 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 08:04:37 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/10/28 11:49:46 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/04 10:04:47 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*  Per the manual, this is run as a LONG and then recast into an INT.  */
-
-#define ULONG_MAX (unsigned long) -1
+/*  Per the manual, this is run as a LONG and then recast into an INT. ULONG_MAX
+** is defined in header. */
 
 int	ft_atoi(const char *str)
 {

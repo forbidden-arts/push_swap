@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:04:28 by dan               #+#    #+#             */
-/*   Updated: 2022/10/31 16:15:32 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/04 09:24:05 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (s_temp[i] == c)
+		if (s_temp[i] == (unsigned char)c)
 			return ((void *)s + i);
 		i++;
 	}
