@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:02:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/04 09:59:18 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/07 11:21:33 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define ULONG_MAX (unsigned long) -1
+# define ULONG_MAX (unsigned long)
 
 typedef struct s_list
 {
