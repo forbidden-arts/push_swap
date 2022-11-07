@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/10/31 19:13:39 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/07 12:55:37 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,25 +58,10 @@ SRCS =		ft_atoi.c				\
 
 # Text Decoration Defs
 bold := $(shell tput bold)
-undln := $(shell tput smul)
-
-black := $(shell tput setaf 0)
-red := $(shell tput setaf 1)
-green := $(shell tput setaf 2)
-yellow := $(shell tput setaf 3)
-blue := $(shell tput setaf 4)
-magenta := $(shell tput setaf 5)
-cyan := $(shell tput setaf 6)
-white := $(shell tput setaf 7)
-grey := $(shell tput setaf 8)
-b_red := $(shell tput setaf 9)
 b_green := $(shell tput setaf 10)
 b_yellow := $(shell tput setaf 11)
 b_blue := $(shell tput setaf 12)
 b_magenta := $(shell tput setaf 13)
-b_cyan := $(shell tput setaf 14)
-b_white := $(shell tput setaf 15)
-
 # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 
 reset := $(shell tput sgr0)
