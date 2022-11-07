@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:38:00 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/07 07:40:43 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/07 12:41:05 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	**ft_unwind(char **tab)
 {
-	int	i ;
+	size_t	i ;
 
 	i = 0;
 	while (tab[i])
@@ -62,7 +62,7 @@ static size_t	ft_word_count(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		i;
+	size_t	i;
 
 	split = (char **)ft_calloc((ft_word_count(s, c) + 1), sizeof(char *));
 	if (!s || !split)
