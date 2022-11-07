@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:38:00 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/07 12:41:05 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/07 12:44:58 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	**ft_unwind(char **tab)
 {
-	size_t	i ;
+	size_t	i;
 
 	i = 0;
 	while (tab[i])
