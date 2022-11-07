@@ -6,82 +6,80 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:38:00 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/02 17:25:51 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/07 07:40:43 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_count(char const *s, char c)
+static char	**ft_unwind(char **tab)
 {
-	int		words;
-	char	*str;
-
-	words = 0;
-	str = (char *)s;
-	while (*str)
-	{
-		while (*str == c)
-			str++;
-		if (*str)
-		{
-			while (*str && *str != c)
-				str++;
-			words++;
-		}
-	}
-	return (words);
-}
-
-static int	wrdlen(char *str, char c)
-{
-	int	i;
+	int	i ;
 
 	i = 0;
-	while (*str == c)
-		str++;
-	while (str && str[i] != c)
+	while (tab[i])
+	{
+		free(tab[i]);
+		tab[i] = NULL;
 		i++;
-	return (i);
-}
-
-static void	*split_undo(char **result, int index)
-{
-	while (index-- >= 0)
-		free(result[index]);
-	free(result);
+	}
+	free(tab);
+	tab = NULL;
 	return (NULL);
 }
 
-/* Notes for future improvement: To avoid the 25 line limit, this function
-could run in reverse and save at least two lines by dropping the iterator.
-Could also move the allocation in to a separate function. */
+static char	*ft_create_word(char const *s, char c)
+{
+	size_t	end;
+	char	*word;
+
+	end = 0;
+	while (s[end] != c && s[end])
+		end++;
+	word = ft_substr(s, 0, end);
+	if (!word)
+		return (NULL);
+	return (word);
+}
+
+static size_t	ft_word_count(char const *s, char c)
+{
+	size_t	count;
+
+	count = 0;
+	while (*s)
+	{
+		while (*s == c && *s)
+			s++;
+		if (*s)
+			count++;
+		while (*s != c && *s)
+			s++;
+	}
+	return (count);
+}
 
 char	**ft_split(char const *s, char c)
 {
-	int		w_count;
+	char	**split;
 	int		i;
-	char	*str;
-	char	**result;
 
-	if (!s)
+	split = (char **)ft_calloc((ft_word_count(s, c) + 1), sizeof(char *));
+	if (!s || !split)
 		return (NULL);
 	i = 0;
-	str = (char *)s;
-	w_count = word_count(str, c);
-	result = (char **)ft_calloc(w_count + 1, sizeof(char *));
-	if (!result)
-		return (NULL);
-	while (i++ < w_count)
+	while (*s)
 	{
-		while (*str == c)
-			str++;
-		result[i - 1] = (char *)ft_calloc(wrdlen(str, c) + 1, sizeof(char));
-		if (!result[i - 1])
-			return (split_undo(result, i - 2));
-		ft_strlcpy(result[i - 1], ft_substr(str, 0, wrdlen(str, c)),
-			wrdlen(str, c) + 1);
-		str += (wrdlen(str, c) + 1);
+		while (*s == c && *s)
+			s++;
+		if (*s)
+		{
+			split[i++] = ft_create_word(s, c);
+			if (!split[i - 1])
+				return (ft_unwind(split));
+			while (*s != c && *s)
+				s++;
+		}
 	}
-	return (result);
+	return (split);
 }
