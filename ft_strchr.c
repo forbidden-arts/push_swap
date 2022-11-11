@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:26:49 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/08 18:21:11 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/09 18:35:18 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ char	*ft_strchr(const char *s, int c)
 	if (!s)
 		return (NULL);
 	chr = (char *)s;
-	c %= 128;
-	while (*chr != c)
+	while (*chr != (unsigned char)c)
 	{
 		if (!*chr)
 			return (NULL);
