@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/07 12:55:37 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/11 13:03:11 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,8 @@ SRCS =		ft_atoi.c				\
 			ft_putchar_fd.c			\
 			ft_putstr_fd.c			\
 			ft_putendl_fd.c			\
-			ft_putnbr_fd.c
-
- SRCSB =	ft_lstnew_bonus.c		\
+			ft_putnbr_fd.c			\
+			ft_lstnew_bonus.c		\
 			ft_lstadd_front_bonus.c	\
 			ft_lstsize_bonus.c		\
 			ft_lstlast_bonus.c		\
@@ -54,18 +53,15 @@ SRCS =		ft_atoi.c				\
 			ft_lstclear_bonus.c		\
 			ft_lstiter_bonus.c		\
 			ft_lstmap_bonus.c		\
-			$(SRCS)
+			get_next_line.c
 
 # Text Decoration Defs
 bold := $(shell tput bold)
 b_green := $(shell tput setaf 10)
 b_yellow := $(shell tput setaf 11)
-b_blue := $(shell tput setaf 12)
 b_magenta := $(shell tput setaf 13)
-# https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
-
 reset := $(shell tput sgr0)
-# End Def
+# End Decoration Defs
 
 
 NAME = libft.a
@@ -74,10 +70,8 @@ OBJS_DIR = objs/
 OBJS = $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
-OBJSB = $(SRCSB:.c=.o)
-OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-CC = cc
+CC = gcc
 
 CC_FLAGS = -Wall -Wextra -Werror
 
@@ -87,8 +81,8 @@ $(OBJS_DIR)%.o : %.c libft.h
 	@cc $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	$(info $(b_blue)$(bold)LIBFT COMPILED SUCCESSFULLY$(reset))
+	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
+	$(info $(b_magenta)$(bold)LIBFT COMPILED SUCCESSFULLY$(reset))
 
 all: $(NAME)
 
@@ -99,7 +93,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-bonus: $(OBJECTS_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
-	$(info $(b_magenta)$(bold)LIBFT+BONUS COMPILED SUCCESSFULLY$(reset))
