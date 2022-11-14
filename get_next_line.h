@@ -6,15 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:53:46 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/11 12:43:01 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/11/14 12:48:42 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdlib.h>
-# include <unistd.h>
 # include "libft.h"
 
 # ifndef BUFFER_SIZE
