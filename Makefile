@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/11 14:50:44 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/11 17:08:17 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ SRCS =		ft_atoi.c				\
 			ft_lstclear_bonus.c		\
 			ft_lstiter_bonus.c		\
 			ft_lstmap_bonus.c		\
-			get_next_line.c
+			get_next_line.c			\
+			ft_strrev.c
 
 # Text Decoration Defs
 bold := $(shell tput bold)
