@@ -6,93 +6,107 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/14 09:28:13 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/18 18:23:21 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =		ft_atoi.c				\
-			ft_bzero.c				\
-			ft_isalnum.c			\
-			ft_isalpha.c			\
-			ft_isascii.c			\
-			ft_isdigit.c			\
-			ft_isprint.c			\
-			ft_memchr.c				\
-			ft_memcmp.c				\
-			ft_memcpy.c				\
-			ft_memmove.c			\
-			ft_memset.c				\
-			ft_strchr.c				\
-			ft_strlcat.c			\
-			ft_strlcpy.c			\
-			ft_strlen.c				\
-			ft_strncmp.c			\
-			ft_strnstr.c			\
-			ft_strrchr.c			\
-			ft_tolower.c			\
-			ft_toupper.c			\
-			ft_calloc.c				\
-			ft_strdup.c				\
-			ft_substr.c				\
-			ft_strjoin.c			\
-			ft_strtrim.c			\
-			ft_split.c				\
-			ft_itoa.c				\
-			ft_strmapi.c			\
-			ft_striteri.c			\
-			ft_putchar_fd.c			\
-			ft_putstr_fd.c			\
-			ft_putendl_fd.c			\
-			ft_putnbr_fd.c			\
-			ft_lstnew_bonus.c		\
-			ft_lstadd_front_bonus.c	\
-			ft_lstsize_bonus.c		\
-			ft_lstlast_bonus.c		\
-			ft_lstadd_back_bonus.c	\
-			ft_lstdelone_bonus.c	\
-			ft_lstclear_bonus.c		\
-			ft_lstiter_bonus.c		\
-			ft_lstmap_bonus.c		\
-			get_next_line.c			\
-			ft_strrev.c
+# Variables
 
-# Text Decoration Defs
-bold := $(shell tput bold)
-b_green := $(shell tput setaf 10)
-b_yellow := $(shell tput setaf 11)
-b_magenta := $(shell tput setaf 13)
-reset := $(shell tput sgr0)
-# End Decoration Defs
+NAME		= libft.a
+INCLUDE		= include
+SRC_DIR		= src/
+OBJ_DIR		= obj/
+CC			= cc
+CFLAGS		= -Wall -Werror -Wextra -I
+AR			= ar rcs
 
 
-NAME = libft.a
+# Text Decoration
 
-OBJS_DIR = objs/
-OBJS = $(SRCS:.c=.o)
-OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
+C_RESET = \033[0;39m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+B_MAGENTA = \033[1;35m
+CYAN = \033[0;96m
 
 
-CC = cc
+# Sources
 
-CC_FLAGS = -Wall -Wextra -Werror
+SRC_FILES =	ft_atoi				\
+			ft_bzero			\
+			ft_isalnum			\
+			ft_isalpha			\
+			ft_isascii			\
+			ft_isdigit			\
+			ft_isprint			\
+			ft_memchr			\
+			ft_memcmp			\
+			ft_memcpy			\
+			ft_memmove			\
+			ft_memset			\
+			ft_strchr			\
+			ft_strlcat			\
+			ft_strlcpy			\
+			ft_strlen			\
+			ft_strncmp			\
+			ft_strnstr			\
+			ft_strrchr			\
+			ft_tolower			\
+			ft_toupper			\
+			ft_calloc			\
+			ft_strdup			\
+			ft_substr			\
+			ft_strjoin			\
+			ft_strtrim			\
+			ft_split			\
+			ft_itoa				\
+			ft_strmapi			\
+			ft_striteri			\
+			ft_putchar_fd		\
+			ft_putstr_fd		\
+			ft_putendl_fd		\
+			ft_putnbr_fd		\
+			ft_lstnew			\
+			ft_lstadd_front		\
+			ft_lstsize			\
+			ft_lstlast			\
+			ft_lstadd_back		\
+			ft_lstdelone		\
+			ft_lstclear			\
+			ft_lstiter			\
+			ft_lstmap			\
+			get_next_line		\
+			ft_strrev			\
+			ft_conv_utils		\
+			ft_pf_printers		\
+			ft_printf
 
-$(OBJS_DIR)%.o : %.c libft.h
-	@mkdir -p $(OBJS_DIR)
-	$(info $(b_green)Compiling:$(b_yellow) $<$(reset))
-	@cc $(CC_FLAGS) -c $< -o $@
 
-$(NAME): $(OBJECTS_PREFIXED)
-	@ar rcs $(NAME) $(OBJECTS_PREFIXED)
-	$(info $(b_magenta)$(bold)LIBFT COMPILED SUCCESSFULLY$(reset))
+SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
-all: $(NAME)
+###
+
+all:		$(NAME)
+
+$(NAME):	$(OBJ)
+			@$(AR) $(NAME) $(OBJ)
+			@echo "\n$(B_MAGENTA)LIBFT COMPILED SUCCESSFULLY$(C_RESET)"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+			@mkdir -p $(OBJ_DIR)
+			@echo "$(GREEN)Compiling: $(YELLOW) $< $(C_RESET)"
+			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS_DIR)
+			@rm -rf $(OBJ_DIR)
+			@echo "$(BLUE)OBJECT FILES DELETED$(C_RESET)"
 
-fclean: clean
-	rm -f $(NAME)
+fclean:		clean
+			@rm -f $(NAME)
+			@echo "$(CYAN)LIBFT ARCHIVE DELETED$(C_RESET)"
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY:		all clean fclean re
