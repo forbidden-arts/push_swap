@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/18 18:27:40 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/18 18:38:32 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ SRC_FILES =	ft_atoi				\
 			ft_lstclear			\
 			ft_lstiter			\
 			ft_lstmap			\
-			get_next_line		\
+			ft_get_next_line	\
 			ft_strrev			\
 			ft_conv_utils		\
 			ft_pf_printers		\
@@ -92,11 +92,13 @@ all:		$(NAME)
 
 $(NAME):	$(OBJ)
 			@$(AR) $(NAME) $(OBJ)
-			@echo "\n$(B_MAGENTA)LIBFT COMPILED SUCCESSFULLY$(C_RESET)\n"
+			@echo "$(B_MAGENTA)\n*-------------------------------*"
+			@echo "|  LIBFT COMPILED SUCCESSFULLY  |"
+			@echo "*-------------------------------*\n$(C_RESET)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 			@mkdir -p $(OBJ_DIR)
-			@echo "$(GREEN)Compiling: $(YELLOW) $< $(C_RESET)"
+			@echo "$(GREEN)Compiling: $(YELLOW)$<$(C_RESET)"
 			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
