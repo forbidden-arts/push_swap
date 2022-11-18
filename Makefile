@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/18 18:23:21 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/11/18 18:27:40 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJ)
 			@$(AR) $(NAME) $(OBJ)
-			@echo "\n$(B_MAGENTA)LIBFT COMPILED SUCCESSFULLY$(C_RESET)"
+			@echo "\n$(B_MAGENTA)LIBFT COMPILED SUCCESSFULLY$(C_RESET)\n"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 			@mkdir -p $(OBJ_DIR)
