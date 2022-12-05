@@ -6,14 +6,14 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/11/18 18:38:32 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/12/05 10:15:02 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
 NAME		= libft.a
-INCLUDE		= include
+INCLUDE		= include/
 SRC_DIR		= src/
 OBJ_DIR		= obj/
 CC			= cc
