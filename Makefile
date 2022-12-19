@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/12/19 13:37:16 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/12/19 17:58:38 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,9 +66,9 @@ clean:
 			@echo "$(BLUE)OBJECT FILES DELETED$(C_RESET)"
 
 fclean:		clean
-			@rm -f $(NAME) $(NAMESV)
+			@rm -f $(NAME) $(NAMELIB)
 			@echo "$(CYAN)EXECUTABLE FILES DELETED$(C_RESET)"
-			@rm -f $(NAMELIB)
-			@echo "$(CYAN)LIBFT LIBRARY DELETED$(C_RESET)"
+#			@rm -f $(NAMELIB)
+#			@echo "$(CYAN)LIBFT LIBRARY DELETED$(C_RESET)"
 
 re:			fclean all
