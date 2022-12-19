@@ -6,22 +6,23 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/12/05 10:15:02 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/12/19 11:42:13 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME		= libft.a
-INCLUDE		= include/
-SRC_DIR		= src/
-OBJ_DIR		= obj/
-CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -I
-AR			= ar rcs
+NAME		=	push_swap
+NAMELIB		=	push_swap.a
+INCLUDE		=	-I include
+LIBFT		=	libft
+SRC_DIR		=	src/
+OBJ_DIR		=	obj/
+CC			=	cc
+CFLAGS		=	-Wall -Werror -Wextra
+AR			=	ar rcs
 
-
-# Text Decoration
+# Colors
 
 C_RESET = \033[0;39m
 GREEN = \033[0;92m
@@ -30,57 +31,10 @@ BLUE = \033[0;94m
 B_MAGENTA = \033[1;35m
 CYAN = \033[0;96m
 
+#Sources
 
-# Sources
-
-SRC_FILES =	ft_atoi				\
-			ft_bzero			\
-			ft_isalnum			\
-			ft_isalpha			\
-			ft_isascii			\
-			ft_isdigit			\
-			ft_isprint			\
-			ft_memchr			\
-			ft_memcmp			\
-			ft_memcpy			\
-			ft_memmove			\
-			ft_memset			\
-			ft_strchr			\
-			ft_strlcat			\
-			ft_strlcpy			\
-			ft_strlen			\
-			ft_strncmp			\
-			ft_strnstr			\
-			ft_strrchr			\
-			ft_tolower			\
-			ft_toupper			\
-			ft_calloc			\
-			ft_strdup			\
-			ft_substr			\
-			ft_strjoin			\
-			ft_strtrim			\
-			ft_split			\
-			ft_itoa				\
-			ft_strmapi			\
-			ft_striteri			\
-			ft_putchar_fd		\
-			ft_putstr_fd		\
-			ft_putendl_fd		\
-			ft_putnbr_fd		\
-			ft_lstnew			\
-			ft_lstadd_front		\
-			ft_lstsize			\
-			ft_lstlast			\
-			ft_lstadd_back		\
-			ft_lstdelone		\
-			ft_lstclear			\
-			ft_lstiter			\
-			ft_lstmap			\
-			ft_get_next_line	\
-			ft_strrev			\
-			ft_conv_utils		\
-			ft_pf_printers		\
-			ft_printf
+SRC_FILES	=	push_swap	\
+				stack_utils
 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
@@ -88,27 +42,35 @@ OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 ###
 
+.PHONY:		all clean fclean re
+
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			@$(AR) $(NAME) $(OBJ)
-			@echo "$(B_MAGENTA)\n*-------------------------------*"
-			@echo "|  LIBFT COMPILED SUCCESSFULLY  |"
-			@echo "*-------------------------------*\n$(C_RESET)"
+			@make -C $(LIBFT)
+			@mv $(LIBFT)/libft.a ./libft.a
+			@mv libft.a $(NAMELIB)
+			@$(AR) $(NAMELIB) $(OBJ)
+			@$(CC) $(CFLAGS) $(INCLUDE) $(NAMELIB) -o push_swap
+			@echo "\n$(B_MAGENTA)PUSH_SWAP COMPILED SUCCESSFULLY$(C_RESET)"
+#			@$(CC) $(CFLAGS) $(INCLUDE) libft.a $(OBJ_DIR)server.o -o server
+#			@echo "\n$(B_MAGENTA)MINITALK SERVER COMPILED SUCCESSFULLY$(C_RESET)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 			@mkdir -p $(OBJ_DIR)
 			@echo "$(GREEN)Compiling: $(YELLOW)$<$(C_RESET)"
 			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+#			@echo "$(B_MAGENTA)FT_PRINTF COMPILED$(C_RESET)"
 
 clean:
 			@rm -rf $(OBJ_DIR)
+			@make clean -C $(LIBFT)
 			@echo "$(BLUE)OBJECT FILES DELETED$(C_RESET)"
 
 fclean:		clean
-			@rm -f $(NAME)
-			@echo "$(CYAN)LIBFT ARCHIVE DELETED$(C_RESET)"
+			@rm -f $(NAME) $(NAMESV)
+			@echo "$(CYAN)EXECUTABLE FILES DELETED$(C_RESET)"
+			@rm -f $(NAMELIB)
+			@echo "$(CYAN)LIBFT LIBRARY DELETED$(C_RESET)"
 
 re:			fclean all
-
-.PHONY:		all clean fclean re

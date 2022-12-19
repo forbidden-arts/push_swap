@@ -6,14 +6,16 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/19 11:11:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/19 11:30:01 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv)
+int	main(int argc, char **argv)
 {
-	ft_printf("%s", argv);
+	if (argc == 1)
+		return (0);
+	ft_printf("%s", argv[1]);
 	return (0);
 }
