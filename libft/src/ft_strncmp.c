@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/19 11:10:11 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/26 07:34:30 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/11/18 18:22:35 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "libft.h"
 
-// t_list	ft_build_stack()
+// Compares two strings up to a specified limit.
 
-// t_list	ft_rotate_stack(t_list *lst, int dir)
-// {
-// 	// Rotate forward (dir = 1)
-// }
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	while ((*s1 || *s2) && n)
+	{
+		if (*s1 != *s2)
+			return ((unsigned char)*s1 - *s2);
+		s1++;
+		s2++;
+		n--;
+	}
+	return (0);
+}

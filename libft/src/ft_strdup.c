@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/19 11:10:11 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/26 08:06:36 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/11/18 18:22:35 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "libft.h"
 
-// t_list	ft_build_stack()
+// Allocates memory and returns a duplicate of a string
 
-// t_list	ft_rotate_stack(t_list *lst, int dir)
-// {
-// 	// Rotate forward (dir = 1)
-// }
+char	*ft_strdup(const char *s1)
+{
+	char	*s2;
+	size_t	i;
+
+	i = 0;
+	s2 = (char *)malloc(sizeof(*s2) * (ft_strlen(s1) + 1));
+	if (!s1 || !s2)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}

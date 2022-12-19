@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/19 11:10:11 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/10/25 11:38:21 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/11/18 18:22:35 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/push_swap.h"
+#include "libft.h"
 
-// t_list	ft_build_stack()
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	const unsigned char	*b1;
+	const unsigned char	*b2;
 
-// t_list	ft_rotate_stack(t_list *lst, int dir)
-// {
-// 	// Rotate forward (dir = 1)
-// }
+	b1 = (const unsigned char *)s1;
+	b2 = (const unsigned char *)s2;
+	while (n--)
+		if (*(b1++) != *(b2++))
+			return (*(--b1) - *(--b2));
+	return (0);
+}
