@@ -1,48 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/19 15:00:36 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/12/19 12:59:52 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/12/19 15:31:35 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_sanitize_input(char **argv)
+t_list	**ft_build_stack(char **argv)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	int		k;
+	char	**temp;
+	t_list	*result;
 
 	i = 1;
 	while (argv[i])
 	{
+		temp = ft_split(argv[i], ' ');
 		j = 0;
-		while (argv[i][j])
+		while (temp[j])
 		{
-			if (!(ft_isdigit(argv[i][j]) || argv[i][j] == 32))
-				return (0);
+			k = ft_atoi(temp[j]);
+			ft_lstadd_back(result, ft_lstnew(*(int *)k));
+			ft_printf("%d\n", temp[j]);
 			j++;
 		}
 		i++;
 	}
-	return (1);
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	*a;
-
-	if (argc == 1)
-		return (0);
-	if (!ft_sanitize_input(argv))
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	a = ft_build_stack(argv);
-	return (0);
+	return (result);
 }

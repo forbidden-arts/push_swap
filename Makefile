@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/12/19 11:42:13 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/12/19 13:37:16 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ CYAN = \033[0;96m
 #Sources
 
 SRC_FILES	=	push_swap	\
-				stack_utils
+				stack_utils	\
+				build_stack
 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
@@ -52,15 +53,12 @@ $(NAME):	$(OBJ)
 			@mv libft.a $(NAMELIB)
 			@$(AR) $(NAMELIB) $(OBJ)
 			@$(CC) $(CFLAGS) $(INCLUDE) $(NAMELIB) -o push_swap
-			@echo "\n$(B_MAGENTA)PUSH_SWAP COMPILED SUCCESSFULLY$(C_RESET)"
-#			@$(CC) $(CFLAGS) $(INCLUDE) libft.a $(OBJ_DIR)server.o -o server
-#			@echo "\n$(B_MAGENTA)MINITALK SERVER COMPILED SUCCESSFULLY$(C_RESET)"
+			@echo "$(B_MAGENTA)PUSH_SWAP COMPILED SUCCESSFULLY\n$(C_RESET)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 			@mkdir -p $(OBJ_DIR)
 			@echo "$(GREEN)Compiling: $(YELLOW)$<$(C_RESET)"
 			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-#			@echo "$(B_MAGENTA)FT_PRINTF COMPILED$(C_RESET)"
 
 clean:
 			@rm -rf $(OBJ_DIR)
