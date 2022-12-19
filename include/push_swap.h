@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 08:31:02 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/18 18:19:28 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/12/17 12:25:06 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-/* Make sure that count * size doesn't overflow, then malloc and zero it out. */
+# include "../libft/include/libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-	size_t	total;
-
-	total = count * size;
-	if (total / count != size)
-		return (NULL);
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
-}
+#endif

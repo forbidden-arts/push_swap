@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 11:17:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/11/18 18:22:35 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/12/17 13:10:32 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/push_swap.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+t_list	ft_build_stack()
+
+t_list	ft_rotate_stack(t_list *lst, int dir)
 {
-	int	i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i])
-		{
-			(*f)(i, s + i);
-			i++;
-		}
-	}
+	// Rotate forward (dir = 1) 
 }
