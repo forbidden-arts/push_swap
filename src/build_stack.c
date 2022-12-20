@@ -6,30 +6,33 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:59:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 08:07:52 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 11:12:01 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	ft_parse_to_stack(t_stack a, char *str)
+t_stack	*ft_parse_to_stack(t_stack *a, char *str)
 {
 	int		i;
-	char	**temp;
+	long	num;
+	char	**tmp;
 
-	temp = ft_split(str, ' ');
+	tmp = ft_split(str, ' ');
 	i = 0;
-	while (temp[i])
+	while (tmp[i])
 	{
-		if (ft_stack_atoi(i) > INT_MAX || ft_stack_atoi(i) < INT_MIN)
+		num = ft_stk_atoi(tmp[i]);
+		if (num > INT_MAX || num < INT_MIN)
 		{
-			ft_tab_unwind(temp);
-			exit_on_error(&a, NULL);
+			ft_tab_unwind(tmp);
+			ft_exit_on_error(&a, NULL);
 		}
-		
+		else
+			ft_stack_add_tail(&a, ft_make_new_stack((int)num));
+		i++;
 	}
-	
-	ft_tab_unwind(temp);
+	ft_tab_unwind(tmp);
 	return (a);
 }
 
@@ -58,7 +61,15 @@ void	ft_stack_add_tail(t_stack **stack, t_stack *new)
 	}
 }
 
-t_stack	ft_build_stack(t_stack a, int i)
+t_stack	*ft_build_stack(t_stack *a, char **argv)
 {
-	if (ft_stack_atoi)
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		a = ft_parse_to_stack(a, argv[i]);
+		i++;
+	}
+	return (a);
 }

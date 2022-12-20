@@ -6,27 +6,11 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 08:07:10 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 11:14:22 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free_stack(t_stack **stack)
-{
-	t_stack	*temp;
-
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		temp = (*stack)->next;
-		(void *)((*stack)->value);
-		free(*stack);
-		*stack = temp;
-	}
-	(*stack) = NULL;
-}
 
 t_stack	*ft_stack_last(t_stack *stack)
 {

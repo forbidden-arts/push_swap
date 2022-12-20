@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 08:07:26 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 11:26:08 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,26 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-// t_stack	*ft_build_stack(char **argv);
-long	ft_stack_atoi(const char *str);
+/*		Stack building			*/
+t_stack	*ft_parse_to_stack(t_stack *a, char *str);
+t_stack	*ft_make_new_stack(int i);
+void	ft_stack_add_tail(t_stack **stack, t_stack *new);
+t_stack	*ft_build_stack(t_stack *a, char **argv);
 
+/*		General Utilities		*/
+long	ft_stk_atoi(const char *str);
+
+/*		Error Related			*/
+void	ft_tab_unwind(char **tab);
+void	ft_exit_on_error(t_stack **a, t_stack **b);
+void	ft_stk_chk_valid(char **argv);
 void	ft_free_stack(t_stack **stack);
-void	**ft_tab_unwind(char **tab);
+void	ft_chk_dup_stack(t_stack *a);
 
-void	exit_on_error(t_stack **a, t_stack **b);
+/*		Stack Utilities			*/
+t_stack	*ft_stack_last(t_stack *stack);
+t_stack	*ft_stack_sec_last(t_stack *stack);
+
+void	ft_print_stack(t_stack *a);
 
 #endif

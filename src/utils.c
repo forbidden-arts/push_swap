@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 08:06:09 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 11:05:56 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_stack_atoi(const char *str)
+long	ft_stk_atoi(const char *str)
 {
 	int			i;
 	long		sum;
@@ -29,35 +29,23 @@ long	ft_stack_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (sum >= long_max / 10 && str[i + 1] > 7 && sign == 1)
-			return (INT_MIN - 1);
+			return (-1);
 		else if (sum >= long_max / 10 && str[i + 1] > 8 && sign == -1)
-			return (INT_MAX + 1);
+			return (0);
 		sum = 10 * sum - (str[i++] - '0');
 	}
 	return (sum * -sign);
 }
 
-void	**ft_tab_unwind(char **tab)
+void	ft_print_stack(t_stack *a)
 {
-	size_t	i;
+	t_stack	*temp;
 
-	i = 0;
-	while (tab[i])
+	temp = a;
+	while (temp != NULL)
 	{
-		free(tab[i]);
-		tab[i] = NULL;
-		i++;
+		ft_printf("%d ", temp->value);
+		temp = temp->next;
 	}
-	free(tab);
-	tab = NULL;
-}
-
-void	exit_on_error(t_stack **a, t_stack **b)
-{
-	if (a || *a)
-		ft_free_stack(a);
-	if (b || *b)
-		ft_free_stack(b);
-	write(2, "Error\n", 6);
-	exit(1);
+	ft_printf("\n");
 }
