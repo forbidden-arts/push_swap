@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/12/19 17:58:38 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/12/20 06:55:29 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ CYAN = \033[0;96m
 
 SRC_FILES	=	push_swap	\
 				stack_utils	\
-				build_stack
+				build_stack	\
+				utils
 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
