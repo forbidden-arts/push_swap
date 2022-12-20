@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 12:12:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 12:33:41 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,17 @@ long	ft_stk_atoi(const char *str)
 		sum = 10 * sum - (str[i++] - '0');
 	}
 	return (sum * -sign);
+}
+
+int	ft_is_sorted(t_stack *a)
+{
+	while (a->next)
+	{
+		if (a->value > a->next->value)
+			return (0);
+		a = a->next;
+	}
+	return (1);
 }
 
 void	ft_print_stack(t_stack *a)
