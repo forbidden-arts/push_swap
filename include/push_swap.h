@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 12:28:03 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 12:41:03 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ long	ft_stk_atoi(const char *str);
 // DELETE THIS
 void	ft_print_stack(t_stack *a);
 
-
 /*		Error Related			*/
 void	ft_tab_unwind(char **tab);
 void	ft_exit_on_error(t_stack **a, t_stack **b);
@@ -55,7 +54,5 @@ void	ft_rotate_stack(t_stack **stack, int dir);
 void	ft_push_stack(t_stack **dst, t_stack **src);
 t_stack	*ft_stack_last(t_stack *stack);
 t_stack	*ft_stack_sec_last(t_stack *stack);
-
-
 
 #endif
