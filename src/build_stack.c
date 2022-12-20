@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:59:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 12:03:11 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 12:11:54 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ t_stack	*ft_make_new_stack(int i)
 
 void	ft_stack_add_tail(t_stack **stack, t_stack *new)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
 	if (!*stack)
 		*stack = new;
 	else
 	{
-		temp = ft_stack_last(*stack);
-		temp->next = new;
+		tmp = ft_stack_last(*stack);
+		tmp->next = new;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:03:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 11:25:19 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 12:12:19 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,31 +64,31 @@ void	ft_stk_chk_valid(char **argv)
 
 void	ft_free_stack(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
 	if (!stack || !(*stack))
 		return ;
 	while (*stack)
 	{
-		temp = (*stack)->next;
+		tmp = (*stack)->next;
 		free(*stack);
-		*stack = temp;
+		*stack = tmp;
 	}
 	(*stack) = NULL;
 }
 
 void	ft_chk_dup_stack(t_stack *a)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
 	while (a->next)
 	{
-		temp = a->next;
-		while (temp)
+		tmp = a->next;
+		while (tmp)
 		{
-			if (a->value == temp->value)
+			if (a->value == tmp->value)
 				ft_exit_on_error(&a, NULL);
-			temp = temp->next;
+			tmp = tmp->next;
 		}
 		a = a->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 11:05:56 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 12:12:37 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ long	ft_stk_atoi(const char *str)
 
 void	ft_print_stack(t_stack *a)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
-	temp = a;
-	while (temp != NULL)
+	tmp = a;
+	while (tmp != NULL)
 	{
-		ft_printf("%d ", temp->value);
-		temp = temp->next;
+		ft_printf("%d ", tmp->value);
+		tmp = tmp->next;
 	}
 	ft_printf("\n");
 }
