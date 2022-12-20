@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 11:26:08 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 11:54:41 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_chk_dup_stack(t_stack *a);
 /*		Stack Utilities			*/
 t_stack	*ft_stack_last(t_stack *stack);
 t_stack	*ft_stack_sec_last(t_stack *stack);
+void	ft_rotate_stack(t_stack **stack, int dir);
 
 void	ft_print_stack(t_stack *a);
 

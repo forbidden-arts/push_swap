@@ -6,13 +6,11 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 11:27:07 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/20 11:58:19 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 int	main(int argc, char **argv)
 {
@@ -26,6 +24,12 @@ int	main(int argc, char **argv)
 	ft_stk_chk_valid(argv);
 	a = ft_build_stack(a, argv);
 	ft_chk_dup_stack(a);
-	ft_print_stack(a);
+
+	// ft_print_stack(a);
+	// ft_rotate_stack(&a, 1);
+	// ft_print_stack(a);
+	// ft_rotate_stack(&a, -1);
+	// ft_rotate_stack(&a, -1);
+	// ft_print_stack(a);
 	return (0);
 }
