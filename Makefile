@@ -6,7 +6,7 @@
 #    By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:53:47 by dpalmer           #+#    #+#              #
-#    Updated: 2022/12/27 13:22:17 by dpalmer          ###   ########.fr        #
+#    Updated: 2022/12/27 14:20:05 by dpalmer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ SRC_FILES	=	push_swap		\
 				error_handling	\
 				stack_stats		\
 				stack_rotate	\
-				stack_actions	
+				stack_actions	\
+				sort
 
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

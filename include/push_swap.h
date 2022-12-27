@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 13:56:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 16:27:30 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_stack	*ft_make_new_stack(int i);
 t_stack	*ft_build_stack(t_stack *a, char **argv);
 
 /*		General Utilities		*/
+int		ft_abs(int n);
 int		ft_is_sorted(t_stack *a);
 long	ft_stk_atoi(const char *str);
 
@@ -58,7 +59,7 @@ t_stack	*ft_stack_sec_last(t_stack *stack);
 
 /*		Stack Stats				*/
 int		ft_stack_size(t_stack *stack);
-void	assign_index(t_stack *stack);
+void	ft_assign_index(t_stack *stack);
 
 /*		Rotation				*/
 void	ft_rotate_a(t_stack **stack, int dir);
@@ -71,5 +72,9 @@ void	ft_swap_b(t_stack **stack);
 void	ft_swap_both(t_stack **stack_a, t_stack **stack_b);
 void	ft_push_a(t_stack **stack_a, t_stack **stack_b);
 void	ft_push_b(t_stack **stack_a, t_stack **stack_b);
+
+/*		Sort					*/
+void	ft_sort_control(t_stack **a, t_stack **b);
+void	ft_sort_mini(t_stack **a);
 
 #endif

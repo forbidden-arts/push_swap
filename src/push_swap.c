@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 13:57:35 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 15:12:38 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,32 +37,33 @@ int	main(int argc, char **argv)
 	ft_stk_chk_valid(argv);
 	a = ft_build_stack(a, argv);
 	ft_chk_dup_stack(a);
-	assign_index(a);
-	ft_print_stack(a);
-	ft_push_stack(&b, &a);
-	ft_push_stack(&b, &a);
-	// ft_print_stack(a);
-	// ft_print_stack(b);
-	// ft_stack_swap(&a);
-	// ft_print_stack(a);
-	ft_rotate_both(&a, &b, 1);
-	ft_print_stack(a);
-	ft_print_stack(b);
-	ft_rotate_both(&a, &b, -1);
-	ft_print_stack(a);
-	ft_print_stack(b);
-	ft_rotate_both(&a, &b, -1);
-	// ft_rotate_a(&a, -1);
-	// ft_rotate_stack(&a, -1);
-	ft_print_stack(a);
-	ft_print_stack(b);
+	ft_sort_control(&a, &b);
 	return (0);
 }
 
 /* TODO:
 
-1) Define actions
+1) Define actions (DONE)
 2) Sort 3 (in-place)
 3) Choose sorting algo
 	3b) Run bucketting tests.
 */
+
+	// ft_print_stack(a);
+	// ft_push_stack(&b, &a);
+	// ft_push_stack(&b, &a);
+	// ft_print_stack(a);
+	// ft_print_stack(b);
+	// ft_stack_swap(&a);
+	// ft_print_stack(a);
+	// ft_rotate_both(&a, &b, 1);
+	// ft_print_stack(a);
+	// ft_print_stack(b);
+	// ft_rotate_both(&a, &b, -1);
+	// ft_print_stack(a);
+	// ft_print_stack(b);
+	// ft_rotate_both(&a, &b, -1);
+	// ft_rotate_a(&a, -1);
+	// ft_rotate_stack(&a, -1);
+	// ft_print_stack(a);
+	// ft_print_stack(b);

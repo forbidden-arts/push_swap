@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 12:08:23 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 16:26:26 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	assign_index(t_stack *stack)
+void	ft_assign_index(t_stack *stack)
 {
 	t_stack	*ptr;
 	t_stack	*max;
@@ -41,4 +41,25 @@ int	ft_stack_size(t_stack *stack)
 	if (stack->next == NULL)
 		return (1);
 	return (1 + (ft_stack_size(stack->next)));
+}
+
+void	ft_bucketize(t_stack *stack, int buckets)
+{
+	int	i;
+	int	size;
+
+	size = ft_stack_size(stack);
+	while (stack)
+	{
+		i = 0;
+		while (++i <= buckets)
+		{
+			if (stack->value < i * (size / buckets))
+			{
+				stack->bucket = i;
+				continue ;
+			}
+		}
+		stack = stack->next;
+	}
 }
