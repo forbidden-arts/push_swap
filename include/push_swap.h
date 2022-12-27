@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/25 13:34:12 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 13:56:37 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ t_stack	*ft_make_new_stack(int i);
 t_stack	*ft_build_stack(t_stack *a, char **argv);
 
 /*		General Utilities		*/
+int		ft_is_sorted(t_stack *a);
 long	ft_stk_atoi(const char *str);
-// DELETE THIS
-void	ft_print_stack(t_stack *a);
 
 /*		Error Related			*/
 void	ft_tab_unwind(char **tab);
@@ -51,13 +50,26 @@ void	ft_free_stack(t_stack **stack);
 void	ft_chk_dup_stack(t_stack *a);
 
 /*		Stack Utilities			*/
-int		ft_stack_size(t_stack *stack);
 void	ft_rotate_stack(t_stack **stack, int dir);
 void	ft_push_stack(t_stack **dst, t_stack **src);
+void	ft_stack_swap(t_stack **stack);
 t_stack	*ft_stack_last(t_stack *stack);
 t_stack	*ft_stack_sec_last(t_stack *stack);
 
 /*		Stack Stats				*/
+int		ft_stack_size(t_stack *stack);
 void	assign_index(t_stack *stack);
+
+/*		Rotation				*/
+void	ft_rotate_a(t_stack **stack, int dir);
+void	ft_rotate_b(t_stack **stack, int dir);
+void	ft_rotate_both(t_stack **stack_a, t_stack **stack_b, int dir);
+
+/*		Stack Actions			*/
+void	ft_swap_a(t_stack **stack);
+void	ft_swap_b(t_stack **stack);
+void	ft_swap_both(t_stack **stack_a, t_stack **stack_b);
+void	ft_push_a(t_stack **stack_a, t_stack **stack_b);
+void	ft_push_b(t_stack **stack_a, t_stack **stack_b);
 
 #endif

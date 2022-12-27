@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/25 13:32:13 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 12:08:23 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,13 @@ void	assign_index(t_stack *stack)
 		max->index = size;
 		size--;
 	}
+}
+
+int	ft_stack_size(t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	if (stack->next == NULL)
+		return (1);
+	return (1 + (ft_stack_size(stack->next)));
 }

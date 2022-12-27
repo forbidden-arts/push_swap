@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 12:23:54 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 13:51:25 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_rotate_stack(t_stack **stack, int dir)
 	t_stack	*tmp;
 	t_stack	*tail;
 
+	if (ft_stack_size(*stack) < 2)
+		return ;
 	if (dir >= 0)
 	{
 		tail = ft_stack_last(*stack);
@@ -62,11 +64,14 @@ void	ft_push_stack(t_stack **dst, t_stack **src)
 	ft_stack_add_head(dst, tmp);
 }
 
-int	ft_stack_size(t_stack *stack)
+void	ft_stack_swap(t_stack **stack)
 {
-	if (!stack)
-		return (0);
-	if (stack->next == NULL)
-		return (1);
-	return (1 + (ft_stack_size(stack->next)));
+	t_stack	*tmp;
+
+	if (!stack || !(*stack)->next)
+		return ;
+	tmp = (*stack)->next->next;
+	(*stack)->next->next = (*stack);
+	(*stack) = (*stack)->next;
+	(*stack)->next->next = tmp;
 }
