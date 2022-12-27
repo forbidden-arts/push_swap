@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_stats.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/25 13:34:53 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/12/25 13:32:13 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	assign_index(t_stack *stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*ptr;
+	t_stack	*max;
+	int		size;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1)
-		return (0);
-	ft_stk_chk_valid(argv);
-	a = ft_build_stack(a, argv);
-	ft_chk_dup_stack(a);
-	assign_index(a);
-	ft_print_stack(a);
-	ft_push_stack(&b, &a);
-	ft_print_stack(a);
-	ft_print_stack(b);
-	// ft_rotate_stack(&a, 1);
-	// ft_print_stack(a);
-	// ft_rotate_stack(&a, -1);
-	// ft_rotate_stack(&a, -1);
-	// ft_print_stack(a);
-	return (0);
+	size = ft_stack_size(stack);
+	while (size)
+	{
+		ptr = stack;
+		max = NULL;
+		while (ptr)
+		{
+			if (ptr->index < 0 && (max == NULL || ptr->value > max->value))
+				max = ptr;
+			ptr = ptr->next;
+		}
+		max->index = size;
+		size--;
+	}
 }

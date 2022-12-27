@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/20 12:41:03 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/25 13:34:12 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 typedef struct s_stack
 {
 	int				value;
+	int				bucket;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -54,5 +56,8 @@ void	ft_rotate_stack(t_stack **stack, int dir);
 void	ft_push_stack(t_stack **dst, t_stack **src);
 t_stack	*ft_stack_last(t_stack *stack);
 t_stack	*ft_stack_sec_last(t_stack *stack);
+
+/*		Stack Stats				*/
+void	assign_index(t_stack *stack);
 
 #endif
