@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 15:12:38 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 19:24:55 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int argc, char **argv)
 	a = ft_build_stack(a, argv);
 	ft_chk_dup_stack(a);
 	ft_sort_control(&a, &b);
+	// ft_print_stack(a);
+	// ft_print_stack(b);
 	return (0);
 }
 

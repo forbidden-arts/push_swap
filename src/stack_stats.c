@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 16:26:26 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 17:27:32 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,23 @@ int	ft_stack_size(t_stack *stack)
 	return (1 + (ft_stack_size(stack->next)));
 }
 
-void	ft_bucketize(t_stack *stack, int buckets)
-{
-	int	i;
-	int	size;
+// void	ft_bucketize(t_stack *stack, int buckets)
+// {
+// 	int	i;
+// 	int	size;
 
-	size = ft_stack_size(stack);
-	while (stack)
-	{
-		i = 0;
-		while (++i <= buckets)
-		{
-			if (stack->value < i * (size / buckets))
-			{
-				stack->bucket = i;
-				continue ;
-			}
-		}
-		stack = stack->next;
-	}
-}
+// 	size = ft_stack_size(stack);
+// 	while (stack)
+// 	{
+// 		i = 0;
+// 		while (++i <= buckets)
+// 		{
+// 			if (stack->value < i * (size / buckets))
+// 			{
+// 				stack->bucket = i;
+// 				continue ;
+// 			}
+// 		}
+// 		stack = stack->next;
+// 	}
+// }

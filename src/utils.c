@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 14:49:19 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 19:24:30 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ int	ft_is_sorted(t_stack *a)
 	return (1);
 }
 
-int	ft_abs(int n)
+int	ft_get_pos(t_stack *stack, int n)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	if (!stack)
+		return (0);
+	if (stack->index == n)
+		return (1);
+	return (1 + (ft_get_pos(stack->next, n)));
 }

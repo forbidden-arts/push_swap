@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 16:27:30 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/27 19:18:22 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,22 @@
 #  define INT_MAX 2147483647
 # endif
 
+# define SA "sa"
+# define SB "sb"
+# define SS "ss"
+# define PA "pa"
+# define PB "pb"
+# define RA "ra"
+# define RB "rb"
+# define RR "rr"
+# define RRA "rra"
+# define RRB "rrb"
+# define RRR "rrr"
+
 typedef struct s_stack
 {
 	int				value;
-	int				bucket;
+	int				pushed;
 	int				index;
 	struct s_stack	*next;
 }					t_stack;
@@ -39,7 +51,7 @@ t_stack	*ft_make_new_stack(int i);
 t_stack	*ft_build_stack(t_stack *a, char **argv);
 
 /*		General Utilities		*/
-int		ft_abs(int n);
+int		ft_get_pos(t_stack *stack, int n);
 int		ft_is_sorted(t_stack *a);
 long	ft_stk_atoi(const char *str);
 
@@ -61,20 +73,13 @@ t_stack	*ft_stack_sec_last(t_stack *stack);
 int		ft_stack_size(t_stack *stack);
 void	ft_assign_index(t_stack *stack);
 
-/*		Rotation				*/
-void	ft_rotate_a(t_stack **stack, int dir);
-void	ft_rotate_b(t_stack **stack, int dir);
-void	ft_rotate_both(t_stack **stack_a, t_stack **stack_b, int dir);
-
 /*		Stack Actions			*/
-void	ft_swap_a(t_stack **stack);
-void	ft_swap_b(t_stack **stack);
-void	ft_swap_both(t_stack **stack_a, t_stack **stack_b);
-void	ft_push_a(t_stack **stack_a, t_stack **stack_b);
-void	ft_push_b(t_stack **stack_a, t_stack **stack_b);
+void	ft_do_op(t_stack **a, t_stack **b, char *op);
 
 /*		Sort					*/
 void	ft_sort_control(t_stack **a, t_stack **b);
 void	ft_sort_mini(t_stack **a);
+void	ft_sort_stacks(t_stack **a, t_stack **b, int size);
+void	ft_prescreen(t_stack **a);
 
 #endif
