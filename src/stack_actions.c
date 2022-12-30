@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 13:16:36 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 19:05:47 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/30 21:33:28 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_match(char *a, char *b)
 {
-	if (ft_strncmp(a, b, 3) == 0)
+	if (ft_strncmp(a, b, ft_strlen(a)) == 0)
 		return (1);
 	return (0);
 }
@@ -48,9 +48,9 @@ void	ft_do_op(t_stack **a, t_stack **b, char *op)
 	else if (ft_match(op, SS))
 		ft_swap_both(a, b);
 	else if (ft_match(op, PA))
-		ft_push_stack(b, a);
-	else if (ft_match(op, PB))
 		ft_push_stack(a, b);
+	else if (ft_match(op, PB))
+		ft_push_stack(b, a);
 	else if (ft_match(op, RA))
 		ft_rotate_stack(a, 1);
 	else if (ft_match(op, RB))

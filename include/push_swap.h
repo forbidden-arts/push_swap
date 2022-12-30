@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/30 14:36:44 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/30 21:19:05 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@
 typedef struct s_stack
 {
 	int				value;
-	int				pushed;
 	int				index;
-	int				bucket;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -82,8 +80,8 @@ void	ft_do_op_n(t_stack **a, t_stack **b, char *op, int n);
 /*		Sort					*/
 void	ft_sort_control(t_stack **a, t_stack **b);
 void	ft_sort_mini(t_stack **a);
-void	ft_sort_stacks(t_stack **a, t_stack **b, int size);
-void	ft_push_index(t_stack **a, t_stack **b, int i);
+void	ft_sort_stacks(t_stack **a, t_stack **b);
+void	ft_push_index(t_stack **a, t_stack **b, int pos, int size);
 
 void	ft_print_stack(t_stack *a);
 

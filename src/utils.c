@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/30 09:55:57 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/30 21:12:35 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_get_pos(t_stack *stack, int n)
 	int	pos;
 
 	pos = 1;
-	if (n < 1 || n > ft_stack_size(stack))
+	if (n < 1)
 		return (0);
 	while (stack->index != n)
 	{
