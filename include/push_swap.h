@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 19:18:22 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/30 10:07:36 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ t_stack	*ft_stack_sec_last(t_stack *stack);
 /*		Stack Stats				*/
 int		ft_stack_size(t_stack *stack);
 void	ft_assign_index(t_stack *stack);
+void	ft_prescreen(t_stack *a);
 
 /*		Stack Actions			*/
 void	ft_do_op(t_stack **a, t_stack **b, char *op);
@@ -80,6 +81,6 @@ void	ft_do_op(t_stack **a, t_stack **b, char *op);
 void	ft_sort_control(t_stack **a, t_stack **b);
 void	ft_sort_mini(t_stack **a);
 void	ft_sort_stacks(t_stack **a, t_stack **b, int size);
-void	ft_prescreen(t_stack **a);
+
 
 #endif

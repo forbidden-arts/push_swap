@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 19:24:30 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/30 09:55:57 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,17 @@ int	ft_is_sorted(t_stack *a)
 
 int	ft_get_pos(t_stack *stack, int n)
 {
-	if (!stack)
+	int	pos;
+
+	pos = 1;
+	if (n < 1 || n > ft_stack_size(stack))
 		return (0);
-	if (stack->index == n)
-		return (1);
-	return (1 + (ft_get_pos(stack->next, n)));
+	while (stack->index != n)
+	{
+		if (!stack->next)
+			break ;
+		stack = stack->next;
+		pos++;
+	}
+	return (pos);
 }

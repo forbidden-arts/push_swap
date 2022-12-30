@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/27 18:55:00 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/30 10:09:15 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 	ft_assign_index(*a);
 	if (size <= 3)
 		ft_sort_mini(a);
-	// else
-	// {
-	// 	ft_prescreen(a);
-	// 	ft_sort_stacks(a, b, size);
-	// }
+	else
+	{
+		ft_prescreen(*a);
+		// ft_sort_stacks(a, b, size);
+	}
 }
 
 void	ft_sort_mini(t_stack **a)
@@ -62,15 +62,4 @@ void	ft_sort_mini(t_stack **a)
 // 	}
 // }
 
-// void	ft_prescreen(t_stack **a)
-// {
-// 	while ((*a)->next)
-// 	{
-// 		if ((*a)->index + 1 == (*a)->next->index)
-// 		{
-// 			(*a)->pushed = 1;
-// 			(*a)->next->pushed = 1;
-// 		}
-// 		(*a) = (*a)->next;
-// 	}
-// }
+
