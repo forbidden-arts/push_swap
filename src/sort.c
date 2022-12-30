@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/30 10:09:15 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/30 16:42:18 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 {
 	int	size;
 
-	*b = NULL;
 	size = ft_stack_size(*a);
 	if (ft_is_sorted(*a) || size == 1)
 		return ;
@@ -25,8 +24,9 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 		ft_sort_mini(a);
 	else
 	{
-		ft_prescreen(*a);
-		// ft_sort_stacks(a, b, size);
+		// ft_prescreen(*a); NOT SURE THIS IS NEEDED.
+		ft_sort_stacks(a, b, size);
+		// ft_push_stack(b, a);
 	}
 }
 
@@ -51,15 +51,35 @@ void	ft_sort_mini(t_stack **a)
 	//		B needs to be descending, take advantage of the double actions when available
 	//		recursively call self
 
-// void	ft_sort_stacks(t_stack **a, t_stack **b, int size)
-// {
-// 	// Fill B
-// 	while (*a && ft_stack_size(*b) <= size / 2)
-// 	{
-// 		if (!(*a)->pushed)
-// 			ft_push_b(a, b);
-// 		(*a) = (*a)->next;
-// 	}
-// }
+void	ft_sort_stacks(t_stack **a, t_stack **b, int size)
+{
+	int	index;
 
+	index = 1;
+	// ft_printf("size: %d\n", size);
+	// ft_printf("%d", ft_get_pos((*a), 1));
+	// pause();
+	while (size > 3 && !ft_is_sorted(*a))
+	{
+		ft_push_index(a, b, index);
+		ft_do_op(a, b, PA);
+		index++;
+		size--;
+	}
+	ft_sort_mini(a);
+	while (*b)
+	{
+		ft_do_op(a, b, PB);
+	}
+}
 
+void	ft_push_index(t_stack **a, t_stack **b, int i)
+{
+	while ((*a)->index != i)
+	{
+		if (ft_get_pos(*a, i) <= ft_stack_size(*a) / 2)
+			ft_do_op(a, b, RA);
+		else
+			ft_do_op(a, b, RRA);
+	}
+}
