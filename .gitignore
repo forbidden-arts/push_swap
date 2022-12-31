@@ -4,3 +4,8 @@ obj/
 .vscode/*
 push_swap
 push_swap.a
+checker_Mac
+.gitignore
+checker
+push_swap_result.log
+push_swap_run_args.log

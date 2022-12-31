@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_stats.c                                      :+:      :+:    :+:   */
+/*   math_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/31 09:50:22 by dpalmer          ###   ########.fr       */
+/*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
+/*   Updated: 2022/12/31 12:04:01 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_assign_index(t_stack *stack)
+int	ft_find_next_b(t_stack *stack, int b)
 {
-	t_stack	*ptr;
-	t_stack	*max;
-	int		size;
+	int	i;
 
-	size = ft_stack_size(stack);
-	while (size)
+	i = 1;
+	while (stack->bucket != b)
 	{
-		ptr = stack;
-		max = NULL;
-		while (ptr)
-		{
-			if (ptr->index < 0 && (max == NULL || ptr->value > max->value))
-				max = ptr;
-			ptr = ptr->next;
-		}
-		max->index = size;
-		size--;
+		if (!stack->next)
+			break ;
+		stack = stack->next;
+		i++;
 	}
+	return (i);
 }
 
-int	ft_stack_size(t_stack *stack)
+int	ft_find_last_b(t_stack *stack, int b)
 {
-	if (!stack)
-		return (0);
-	return (1 + (ft_stack_size(stack->next)));
+	int		i;
+	t_stack	*tmp;
+
+	i = 0;
+	tmp = stack;
+	while (stack->next)
+	{
+		if (stack->bucket == b)
+			i = stack->index;
+		stack = stack->next;
+	}
+	if (stack->bucket == b)
+		i = stack->index;
+	return (ft_get_pos(tmp, i));
 }

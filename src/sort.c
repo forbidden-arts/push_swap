@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/30 21:37:22 by dpalmer          ###   ########.fr       */
+/*   Updated: 2022/12/31 11:49:32 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 	if (size <= 3)
 		ft_sort_mini(a);
 	else
+		ft_bucketize(*a, 2);
+		ft_print_stack(*a);
+		ft_printf("First %d, Last %d\n", ft_find_next_b(*a, 1), ft_find_last_b(*a, 1));
 		ft_sort_stacks(a, b);
 }
 
