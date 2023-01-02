@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 12:24:24 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/02 17:55:19 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,46 +57,67 @@ void	ft_sort_stacks(t_stack **a, t_stack **b)
 		if (ft_find_next(*a, i) + 1 < ft_stack_size(*a) - ft_find_last(*a, i))
 			ft_do_op_n(a, b, RA, ft_find_next(*a, i) - 1);
 		else
-			ft_do_op_n(a, b, RRA, ft_stack_size(*a) - ft_find_last(*a, i) + 1);
+			ft_do_op_n(a, b, RRA, ft_stack_size(*a) - ft_find_last(*a, i));
 		ft_do_op(a, b, PB);
 	}
 	ft_sort_mini(a);
-	ft_print_stack(*a);
-	ft_print_stack(*b);
 	while ((*b))
 		ft_push_back(a, b);
-	ft_print_stack(*a);
-	ft_print_stack(*b);
+	while (!ft_is_sorted(*a))
+	{
+		if (ft_get_pos(*a, 1) + 1 > (ft_stack_size(*a) / 2)
+			&& ft_stack_size(*a) < 6)
+			ft_do_op(a, b, RA);
+		else
+			ft_do_op(a, b, RRA);
+	}
 }
 
 void	ft_push_back(t_stack **a, t_stack **b)
 {
-	int	i;
+	t_stack	*tmp;
 
-	i = 0;
+	tmp = ft_stack_last(*a);
+	if (ft_stack_size(*b) == 2 && (*b)->index > (*b)->next->index)
+		ft_do_op(a, b, SB);
 	if (ft_isbig(*a, (*b)->index))
 	{
+		while (!ft_is_sorted(*a))
+			ft_do_op(a, b, RRA);
 		ft_do_op(a, b, PA);
 		ft_do_op(a, b, RA);
 	}
-	else
-	{
-		while ((*a)->index < (*b)->index)
-		{
-			ft_do_op(a, b, RA);
-			i++;
-		}
+	else if ((*b) && tmp->index < (*a)->index && tmp->index > (*b)->index)
+		ft_do_op(a, b, RRA);
+	else if ((*b)->index < (*a)->index)
 		ft_do_op(a, b, PA);
-	}
-	ft_do_op_n(a, b, RRA, i);
+	else if ((*a)->index < (*b)->index)
+		ft_do_op(a, b, RA);
 }
 
-/*
-LOGIC: if B->index is greater than anything in A, push it over and RA
-Otherwise: rotate A until b > index but < next.index. PA, rotate back.
+// 1 4 5	3 2
+// 1 2 3	4 5
+// 2 3 4	1 5
+// 1 2 4	5 3
 
-else if ((*a)->index > (*a)->next->index && (*b)->index < (*b)->next->index)
-ft_do_op(a, b, SS);
-else if ((*b)->index < (*b)->next->index)
-ft_do_op(a, b, SB);
-*/
+// void	ft_sort_small(t_stack **a, t_stack **b)
+// {
+// 	while (*b)
+// 	{
+// 		if ((*b)->next && (*b)->index < (*b)->next->index)
+// 		{	ft_do_op(a, b, RB);
+// 			ft_print_stack(*b);
+// 		}
+// 		if (ft_isbig(*a, (*b)->index))
+// 			ft_do_op(a, b, PA);
+// 		else if ((*a)->index < (*b)->index)
+// 			ft_do_op(a, b, RA);
+// 		else if ((*a)->index > (*b)->index)
+// 			ft_do_op(a, b, PA);
+// 	}
+// 	// ft_print_stack(*a);
+// 	// ft_print_stack(*b);
+// 	while ((*a)->index != 1)
+// 		ft_do_op(a, b, RRA);
+// 	ft_print_stack(*a);
+// }
