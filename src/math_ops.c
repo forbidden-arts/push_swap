@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/31 12:04:01 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:17:24 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_find_next_b(t_stack *stack, int b)
+int	ft_find_next(t_stack *stack, int b)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	ft_find_next_b(t_stack *stack, int b)
 	return (i);
 }
 
-int	ft_find_last_b(t_stack *stack, int b)
+int	ft_find_last(t_stack *stack, int b)
 {
 	int		i;
 	t_stack	*tmp;
@@ -43,4 +43,17 @@ int	ft_find_last_b(t_stack *stack, int b)
 	if (stack->bucket == b)
 		i = stack->index;
 	return (ft_get_pos(tmp, i));
+}
+
+int	ft_isbig(t_stack *stack, int i)
+{
+	if (!stack)
+		return (1);
+	while (stack)
+	{
+		if (stack->index > i)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

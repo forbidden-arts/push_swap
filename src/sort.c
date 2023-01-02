@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/31 11:49:32 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:24:24 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,52 +23,80 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 	if (size <= 3)
 		ft_sort_mini(a);
 	else
+	{
 		ft_bucketize(*a, 2);
-		ft_print_stack(*a);
-		ft_printf("First %d, Last %d\n", ft_find_next_b(*a, 1), ft_find_last_b(*a, 1));
 		ft_sort_stacks(a, b);
+	}
 }
 
 void	ft_sort_mini(t_stack **a)
 {
 	if (ft_stack_size(*a) == 2)
-		ft_do_op(a, NULL, "sa");
+		ft_do_op(a, NULL, SA);
 	while (!ft_is_sorted(*a))
 	{
 		if ((*a)->index > (*a)->next->index && (*a)->index
 			> (*a)->next->next->index)
-			ft_do_op(a, NULL, "ra");
+			ft_do_op(a, NULL, RA);
 		else if ((*a)->index > (*a)->next->next->index)
-			ft_do_op(a, NULL, "rra");
+			ft_do_op(a, NULL, RRA);
 		else
-			ft_do_op(a, NULL, "sa");
+			ft_do_op(a, NULL, SA);
 	}
 }
 
 void	ft_sort_stacks(t_stack **a, t_stack **b)
 {
-	int		index;
-	int		pos;
+	int		i;
 
-	index = 1;
+	i = 1;
 	while (!ft_is_sorted(*a) && ft_stack_size(*a) > 3)
 	{
-		pos = ft_get_pos(*a, index);
-		ft_push_index(a, b, pos, ft_stack_size(*a));
-		index++;
+		if (!ft_find_last(*a, i))
+			i++;
+		if (ft_find_next(*a, i) + 1 < ft_stack_size(*a) - ft_find_last(*a, i))
+			ft_do_op_n(a, b, RA, ft_find_next(*a, i) - 1);
+		else
+			ft_do_op_n(a, b, RRA, ft_stack_size(*a) - ft_find_last(*a, i) + 1);
+		ft_do_op(a, b, PB);
 	}
 	ft_sort_mini(a);
-	while (*b)
-	{
-		ft_do_op(a, b, PA);
-	}
+	ft_print_stack(*a);
+	ft_print_stack(*b);
+	while ((*b))
+		ft_push_back(a, b);
+	ft_print_stack(*a);
+	ft_print_stack(*b);
 }
 
-void	ft_push_index(t_stack **a, t_stack **b, int pos, int size)
+void	ft_push_back(t_stack **a, t_stack **b)
 {
-	if (pos <= size / 2)
-		ft_do_op_n(a, b, RA, pos - 1);
+	int	i;
+
+	i = 0;
+	if (ft_isbig(*a, (*b)->index))
+	{
+		ft_do_op(a, b, PA);
+		ft_do_op(a, b, RA);
+	}
 	else
-		ft_do_op_n(a, b, RRA, size - pos + 1);
-	ft_do_op(a, b, PB);
+	{
+		while ((*a)->index < (*b)->index)
+		{
+			ft_do_op(a, b, RA);
+			i++;
+		}
+		ft_do_op(a, b, PA);
+	}
+	ft_do_op_n(a, b, RRA, i);
 }
+
+/*
+LOGIC: if B->index is greater than anything in A, push it over and RA
+Otherwise: rotate A until b > index but < next.index. PA, rotate back.
+
+else if ((*a)->index > (*a)->next->index && (*b)->index < (*b)->next->index)
+ft_do_op(a, b, SS);
+else if ((*b)->index < (*b)->next->index)
+ft_do_op(a, b, SB);
+*/

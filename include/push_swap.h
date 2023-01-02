@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/31 11:36:20 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:17:17 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ t_stack	*ft_build_stack(t_stack *a, char **argv);
 int		ft_get_pos(t_stack *stack, int n);
 int		ft_is_sorted(t_stack *a);
 long	ft_stk_atoi(const char *str);
-void	ft_bucketize(t_stack *stack, int buckets);
 
 /*		Error Related			*/
 void	ft_tab_unwind(char **tab);
@@ -73,7 +72,8 @@ t_stack	*ft_stack_sec_last(t_stack *stack);
 /*		Stack Stats				*/
 int		ft_stack_size(t_stack *stack);
 void	ft_assign_index(t_stack *stack);
-void	ft_prescreen(t_stack *a);
+void	ft_bucketize(t_stack *stack, int buckets);
+// void	ft_find_max(t_stack *stack);
 
 /*		Stack Actions			*/
 void	ft_do_op(t_stack **a, t_stack **b, char *op);
@@ -83,11 +83,12 @@ void	ft_do_op_n(t_stack **a, t_stack **b, char *op, int n);
 void	ft_sort_control(t_stack **a, t_stack **b);
 void	ft_sort_mini(t_stack **a);
 void	ft_sort_stacks(t_stack **a, t_stack **b);
-void	ft_push_index(t_stack **a, t_stack **b, int pos, int size);
+void	ft_push_back(t_stack **a, t_stack **b);
 
 /*		Math Ops				*/
-int		ft_find_next_b(t_stack *stack, int b);
-int		ft_find_last_b(t_stack *stack, int b);
+int		ft_find_next(t_stack *stack, int b);
+int		ft_find_last(t_stack *stack, int b);
+int		ft_isbig(t_stack *stack, int i);
 
 /*		Misc					*/
 void	ft_print_stack(t_stack *a);

@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/31 09:37:29 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/02 11:32:21 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_print_stack(t_stack *a)
 	tmp = a;
 	while (tmp != NULL)
 	{
-		ft_printf("num: %d idx: %d bkt:%d \n",
-			tmp->value, tmp->index, tmp->bucket);
+		ft_printf("num: %d idx: %d bkt:%d max:%d\n",
+			tmp->value, tmp->index, tmp->bucket, tmp->is_max);
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
