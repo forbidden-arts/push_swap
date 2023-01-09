@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 15:14:20 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 15:44:08 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_stack
 	int				value;
 	int				index;
 	int				sorted;
-	int				bucket;
+	int				pushed;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -74,7 +74,6 @@ t_stack	*ft_stack_sec_last(t_stack *stack);
 
 /*		Stack Stats				*/
 void	ft_assign_index(t_stack *stack);
-void	ft_bucketize(t_stack *stack, int buckets);
 int		ft_find_max(t_stack *stack);
 int		ft_find_min(t_stack *stack);
 int		ft_stack_avg(t_stack *stack);
@@ -95,8 +94,6 @@ int		ft_to_top(t_stack **stack, int i);
 /*		Math Ops				*/
 int		ft_find_fwd(t_stack *stack, int b);
 int		ft_find_bwd(t_stack *stack, int b);
-// int		ft_find_next(t_stack *stack, int b);
-// int		ft_find_last(t_stack *stack, int b);
 
 /*		Quicksort				*/
 void	ft_partition(t_stack **a, t_stack **b);
