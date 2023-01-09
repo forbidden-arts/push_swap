@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 10:38:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 15:14:47 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,36 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 		return ;
 	ft_assign_index(*a);
 	if (size <= 3)
-		ft_sort_mini(a);
-	// else
-	// {
-	// 	ft_bucketize(*a, 2);
-	// 	ft_sort_stacks(a, b);
-	// }
-	ft_print_stack(*b);
+		ft_sort_mini(a, b);
+	else if (size <= 5)
+		ft_sort_five(a, b, size);
+	// ft_print_stack(*a);
+	// ft_print_stack(*b);
 }
 
-void	ft_sort_mini(t_stack **a)
+void	ft_sort_mini(t_stack **a, t_stack **b)
 {
 	if (ft_stack_size(*a) == 2)
-		ft_do_op(a, NULL, SA);
+		ft_do_op(a, b, SA);
 	while (!ft_is_sorted(*a))
 	{
 		if ((*a)->index > (*a)->next->index && (*a)->index
 			> (*a)->next->next->index)
-			ft_do_op(a, NULL, RA);
+			ft_do_op(a, b, RA);
 		else if ((*a)->index > (*a)->next->next->index)
-			ft_do_op(a, NULL, RRA);
+			ft_do_op(a, b, RRA);
 		else
-			ft_do_op(a, NULL, SA);
+			ft_do_op(a, b, SA);
 	}
+}
+
+void	ft_sort_five(t_stack **a, t_stack **b, int size)
+{
+	ft_partition(a, b);
+	ft_sort_mini(a, b);
+	if (ft_stack_size(*b) > 1 && (*b)->index < (*b)->next->index)
+		ft_do_op(a, b, SB);
+	ft_do_op_n(a, b, PA, size - 3);
 }
 
 /*  WORKS, BUT TOO MANY ACTIONS.
