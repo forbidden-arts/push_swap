@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 10:43:34 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 18:21:05 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_rotate_stack(t_stack **stack, int dir)
 	t_stack	*tmp;
 	t_stack	*tail;
 
-	if (ft_stack_size(*stack) < 2)
+	if (ft_s_size(*stack) < 2)
 		return ;
 	if (dir >= 0)
 	{

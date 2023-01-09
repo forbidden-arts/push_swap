@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 16:27:36 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 20:01:37 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// ft_printf("dir: %d", ft_to_top(&a, 5));
+// ft_printf("dir: %d", ft_to_top_a(&a, 5));
 //TODO: FIX AVERAGE, ADJUST FOR UNSORTED.
 	// ft_print_stack(a);
 	// ft_do_op_n(&a, &b, PB, 5);
@@ -52,12 +52,12 @@ int	main(int argc, char **argv)
 	// // ft_printf("%d\n", ft_stack_avg(a));
 	// // ft_smart_rotate_a(&a, ft_stack_avg(a));
 
-	// ft_to_top(&a, &b, 3);
+	// ft_to_top_a(&a, &b, 3);
 	// ft_print_stack(b);
 	// // ft_do_op_n(&a, &b, PB, 3);
 	// // ft_printf("Min: %d, Max: %d\n", ft_find_min(b), ft_find_max(b));
 	// // ft_printf("%d\n", ft_stack_avg(b));
-	// ft_printf("size: %d\n", ft_size_unsort(a));
+	// ft_printf("size: %d\n", ft_unsort(a));
 	// a->sorted = 1;
 	// a->next->sorted = 1;
-	// ft_printf("size: %d\n", ft_size_unsort(a));
+	// ft_printf("size: %d\n", ft_unsort(a));

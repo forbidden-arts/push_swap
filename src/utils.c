@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 07:34:48 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 18:21:36 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ int	ft_get_pos(t_stack *stack, int n)
 }
 
 /* Counts the number of elements in a stack. */
-int	ft_stack_size(t_stack *stack)
+int	ft_s_size(t_stack *stack)
 {
 	if (!stack)
 		return (0);
-	return (1 + (ft_stack_size(stack->next)));
+	return (1 + (ft_s_size(stack->next)));
 }
 
-int	ft_size_unsort(t_stack *stack)
+int	ft_unsort(t_stack *stack)
 {
 	int	i;
 

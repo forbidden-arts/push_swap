@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 16:32:34 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 20:03:12 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ t_stack	*ft_build_stack(t_stack *a, char **argv);
 int		ft_get_pos(t_stack *stack, int n);
 int		ft_is_sorted(t_stack *a);
 long	ft_stk_atoi(const char *str);
-int		ft_stack_size(t_stack *stack);
-int		ft_size_unsort(t_stack *stack);
+int		ft_s_size(t_stack *stack);
+int		ft_unsort(t_stack *stack);
 
 /*		Error Related			*/
 void	ft_tab_unwind(char **tab);
@@ -85,11 +85,12 @@ void	ft_do_op_n(t_stack **a, t_stack **b, char *op, int n);
 /*		Sort					*/
 void	ft_sort_control(t_stack **a, t_stack **b);
 void	ft_sort_mini(t_stack **a, t_stack **b);
-void	ft_sort_five(t_stack **a, t_stack **b, int size);
+void	ft_sort_small(t_stack **a, t_stack **b);
+void	ft_merge(t_stack **a, t_stack **b);
 
 /*		Rotate					*/
 int		ft_smart_rotate(t_stack **stack, int i);
-int		ft_to_top(t_stack **stack, int i);
+void	ft_to_top_a(t_stack **stack, int i);
 
 /*		Math Ops				*/
 int		ft_find_fwd(t_stack *stack, int b);

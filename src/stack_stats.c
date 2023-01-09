@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 16:41:34 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 18:28:53 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_assign_index(t_stack *stack)
 	t_stack	*max;
 	int		size;
 
-	size = ft_stack_size(stack);
+	size = ft_s_size(stack);
 	while (size)
 	{
 		ptr = stack;
@@ -44,10 +44,10 @@ int	ft_find_max(t_stack *stack)
 	if (!stack)
 		return (0);
 	max = 0;
-	size = ft_stack_size(stack);
+	size = ft_s_size(stack);
 	while (size--)
 	{
-		if (stack->index > max)
+		if (stack->index > max && !stack->sorted)
 			max = stack->index;
 		stack = stack->next;
 	}
@@ -62,11 +62,11 @@ int	ft_find_min(t_stack *stack)
 
 	if (!stack)
 		return (0);
-	size = ft_stack_size(stack);
-	min = stack->index;
+	size = ft_s_size(stack);
+	min = INT_MAX;
 	while (size--)
 	{
-		if (min > stack->index)
+		if (min > stack->index && !stack->sorted)
 			min = stack->index;
 		stack = stack->next;
 	}
@@ -100,7 +100,7 @@ int	ft_stack_avg(t_stack *stack)
 // {
 // 	int	size;
 
-// 	size = ft_stack_size(stack);
+// 	size = ft_s_size(stack);
 // 	while (stack->next)
 // 	{
 // 		stack->bucket = (stack->index / (size / buckets + 1) + 1);

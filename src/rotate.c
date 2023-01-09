@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:37:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 16:29:08 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 20:07:22 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,18 @@ int	ft_smart_rotate(t_stack **stack, int i)
 }
 
 /* Moves int "i" to the top the quickest way by indicating direction */
-int	ft_to_top(t_stack **stack, int i)
+void	ft_to_top_a(t_stack **stack, int i)
 {
 	int	pos;
 
 	if ((*stack)->index == i)
-		return (0);
+		return ;
+	while ((*stack)->index != i)
+	{
 	pos = ft_get_pos(*stack, i);
-	if (pos - 1 <= ft_stack_size(*stack) - pos)
-		return (-1);
+	if (pos <= ft_s_size(*stack) / 2)
+		ft_do_op(stack, NULL, RA);
 	else
-		return (1);
+		ft_do_op(stack, NULL, RRA);
+	}
 }
