@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 17:55:19 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/02 21:21:20 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 	ft_assign_index(*a);
 	if (size <= 3)
 		ft_sort_mini(a);
-	else
-	{
-		ft_bucketize(*a, 2);
-		ft_sort_stacks(a, b);
-	}
+	// else
+	// {
+	// 	ft_bucketize(*a, 2);
+	// 	ft_sort_stacks(a, b);
+	// }
+	ft_print_stack(*b);
 }
 
 void	ft_sort_mini(t_stack **a)
@@ -45,6 +46,18 @@ void	ft_sort_mini(t_stack **a)
 	}
 }
 
+void	ft_smart_rotate_a(t_stack **a, int i)
+{
+	while ((*a)->index > i)
+	{
+		if (ft_find_fwd(*a, i) <= ft_find_bwd(*a, i))
+			ft_do_op(a, NULL, RA);
+		else
+			ft_do_op(a, NULL, RRA);
+	}
+}
+
+/*  WORKS, BUT TOO MANY ACTIONS.
 void	ft_sort_stacks(t_stack **a, t_stack **b)
 {
 	int		i;
@@ -94,30 +107,4 @@ void	ft_push_back(t_stack **a, t_stack **b)
 	else if ((*a)->index < (*b)->index)
 		ft_do_op(a, b, RA);
 }
-
-// 1 4 5	3 2
-// 1 2 3	4 5
-// 2 3 4	1 5
-// 1 2 4	5 3
-
-// void	ft_sort_small(t_stack **a, t_stack **b)
-// {
-// 	while (*b)
-// 	{
-// 		if ((*b)->next && (*b)->index < (*b)->next->index)
-// 		{	ft_do_op(a, b, RB);
-// 			ft_print_stack(*b);
-// 		}
-// 		if (ft_isbig(*a, (*b)->index))
-// 			ft_do_op(a, b, PA);
-// 		else if ((*a)->index < (*b)->index)
-// 			ft_do_op(a, b, RA);
-// 		else if ((*a)->index > (*b)->index)
-// 			ft_do_op(a, b, PA);
-// 	}
-// 	// ft_print_stack(*a);
-// 	// ft_print_stack(*b);
-// 	while ((*a)->index != 1)
-// 		ft_do_op(a, b, RRA);
-// 	ft_print_stack(*a);
-// }
+*/

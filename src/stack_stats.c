@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 12:05:46 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/02 21:41:58 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,6 @@ void	ft_assign_index(t_stack *stack)
 	}
 }
 
-int	ft_stack_size(t_stack *stack)
-{
-	if (!stack)
-		return (0);
-	return (1 + (ft_stack_size(stack->next)));
-}
-
 void	ft_bucketize(t_stack *stack, int buckets)
 {
 	int	size;
@@ -54,20 +47,57 @@ void	ft_bucketize(t_stack *stack, int buckets)
 	stack->bucket = (stack->index / (size / buckets + 1) + 1);
 }
 
-// void	ft_find_max(t_stack *stack)
-// {
-// 	int	size;
+int	ft_find_max(t_stack *stack)
+{
+	int	max;
+	int	size;
 
-// 	size = ft_stack_size(stack);
-// 	while (stack->next)
-// 	{
-// 		if (stack->index == size)
-// 		{
-// 			stack->is_max = 1;
-// 			break ;
-// 		}
-// 		stack = stack->next;
-// 	}
-// 	if (stack->index == size)
-// 		stack->is_max = 1;
-// }
+	if (!stack)
+		return (0);
+	max = 0;
+	size = ft_stack_size(stack);
+	while (size--)
+	{
+		if (stack->index > max)
+			max = stack->index;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+int	ft_find_min(t_stack *stack)
+{
+	int	min;
+	int	size;
+
+	if (!stack)
+		return (0);
+	size = ft_stack_size(stack);
+	min = stack->index;
+	while (size--)
+	{
+		if (min > stack->index)
+			min = stack->index;
+		stack = stack->next;
+	}
+	return (min);
+}
+
+int	ft_stack_avg(t_stack *stack)
+{
+	int		i;
+	int		size;
+	float	total;
+
+	if (!stack)
+		return (0);
+	size = ft_stack_size(stack);
+	i = 0;
+	total = 0;
+	while (i++ < size)
+	{
+		total += stack->index;
+		stack = stack->next;
+	}
+	return ((int)(total / size + 0.5));
+}
