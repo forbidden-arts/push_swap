@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 21:33:04 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 07:34:48 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ long	ft_stk_atoi(const char *str)
 	return (sum * -sign);
 }
 
+/* Checks whether a stack is sorted. */
 int	ft_is_sorted(t_stack *a)
 {
 	while (a->next)
@@ -48,6 +49,7 @@ int	ft_is_sorted(t_stack *a)
 	return (1);
 }
 
+/* Returns the position relative to the top of the stack of N */
 int	ft_get_pos(t_stack *stack, int n)
 {
 	int	pos;
@@ -65,6 +67,7 @@ int	ft_get_pos(t_stack *stack, int n)
 	return (pos);
 }
 
+/* Counts the number of elements in a stack. */
 int	ft_stack_size(t_stack *stack)
 {
 	if (!stack)

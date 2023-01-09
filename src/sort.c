@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 21:21:20 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 07:38:18 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_sort_mini(t_stack **a)
 	}
 }
 
+/* Finds a number less than "i" and does the smallest number of moves. */
 void	ft_smart_rotate_a(t_stack **a, int i)
 {
 	while ((*a)->index > i)

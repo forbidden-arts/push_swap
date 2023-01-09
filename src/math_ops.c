@@ -6,12 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 21:29:35 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 07:25:28 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* How many moves (RA) to put a number less than B to the top of the stack */
 int	ft_find_fwd(t_stack *stack, int b)
 {
 	int	i;
@@ -29,6 +30,7 @@ int	ft_find_fwd(t_stack *stack, int b)
 	return (i);
 }
 
+/* How many moves (RRA) to put a number less than B to the top of the stack */
 int	ft_find_bwd(t_stack *stack, int b)
 {
 	int		i;
@@ -49,6 +51,7 @@ int	ft_find_bwd(t_stack *stack, int b)
 	return (ft_stack_size(tmp) - ft_get_pos(tmp, i) + 1);
 }
 
+/* Not currently used. Remnant of bucketing */
 int	ft_find_next(t_stack *stack, int b)
 {
 	int	i;
@@ -64,6 +67,7 @@ int	ft_find_next(t_stack *stack, int b)
 	return (i);
 }
 
+/* Not currently used. Remnant of bucketing */
 int	ft_find_last(t_stack *stack, int b)
 {
 	int		i;

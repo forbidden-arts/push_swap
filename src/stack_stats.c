@@ -6,12 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 21:41:58 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 07:31:25 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Indexes numbers 1 to N, for easier handling. */
 void	ft_assign_index(t_stack *stack)
 {
 	t_stack	*ptr;
@@ -34,6 +35,7 @@ void	ft_assign_index(t_stack *stack)
 	}
 }
 
+/* Not currently used. */
 void	ft_bucketize(t_stack *stack, int buckets)
 {
 	int	size;
@@ -47,6 +49,7 @@ void	ft_bucketize(t_stack *stack, int buckets)
 	stack->bucket = (stack->index / (size / buckets + 1) + 1);
 }
 
+/* Returns the max index of a stack. */
 int	ft_find_max(t_stack *stack)
 {
 	int	max;
@@ -64,7 +67,7 @@ int	ft_find_max(t_stack *stack)
 	}
 	return (max);
 }
-
+/* Returns the min index of a stack. */
 int	ft_find_min(t_stack *stack)
 {
 	int	min;
@@ -83,6 +86,7 @@ int	ft_find_min(t_stack *stack)
 	return (min);
 }
 
+/* Returns the average index of a stack. */
 int	ft_stack_avg(t_stack *stack)
 {
 	int		i;

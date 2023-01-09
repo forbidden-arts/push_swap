@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/02 21:43:13 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 07:43:47 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_print_stack(t_stack *a)
 	tmp = a;
 	while (tmp != NULL)
 	{
-		ft_printf("num: %d idx: %d bkt:%d max:%d\n",
-			tmp->value, tmp->index, tmp->bucket);
+		ft_printf("num: %d idx: %d\n",
+			tmp->value, tmp->index);
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
@@ -39,14 +39,14 @@ int	main(int argc, char **argv)
 	a = ft_build_stack(a, argv);
 	ft_chk_dup_stack(a);
 	ft_sort_control(&a, &b);
-	ft_printf("%d, %d\n", ft_find_fwd(a, 3), ft_find_bwd(a, 3));
-	// ft_printf("%d\n", ft_stack_avg(a));
-	// ft_printf("%d\n", ft_find_max(b));
-	// ft_printf("%d\n", ft_find_min(a));
-	// ft_printf("%d\n", ft_find_min(b));
-	// a->sorted = 1;
-	// a->next->sorted = 1;
+	ft_print_stack(a);
+	ft_printf("%d, %d\n", ft_find_fwd(a, ft_stack_avg(a)), ft_find_bwd(a, ft_stack_avg(a)));
 	ft_printf("%d\n", ft_stack_avg(a));
+	ft_smart_rotate_a(&a, ft_stack_avg(a));
+	ft_print_stack(a);
+	// ft_do_op_n(&a, &b, PB, 3);
+	// ft_printf("Min: %d, Max: %d\n", ft_find_min(b), ft_find_max(b));
+	// ft_printf("%d\n", ft_stack_avg(b));
 	return (0);
 }
 
