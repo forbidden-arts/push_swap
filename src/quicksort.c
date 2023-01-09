@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 15:09:31 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 15:28:00 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_partition(t_stack **a, t_stack **b)
 	int	pivot;
 
 	pivot = ft_stack_avg(*a);
-	if (ft_stack_size(*a) == 4)
-		pivot--;
 	while (ft_stack_size(*b) < ft_size_unsort(*a) - 1 && ft_stack_size (*a) > 3)
 	{
 		if (ft_smart_rotate(a, pivot) == 1)

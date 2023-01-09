@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 14:16:53 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 15:27:33 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_stack_avg(t_stack *stack)
 
 	if (!stack)
 		return (0);
-	i = 0;
+	i = 1;
 	total = 0;
 	while (stack->next)
 	{
