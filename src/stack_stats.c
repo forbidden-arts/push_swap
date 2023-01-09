@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 07:31:25 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/09 12:19:51 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,6 @@ void	ft_assign_index(t_stack *stack)
 	}
 }
 
-/* Not currently used. */
-void	ft_bucketize(t_stack *stack, int buckets)
-{
-	int	size;
-
-	size = ft_stack_size(stack);
-	while (stack->next)
-	{
-		stack->bucket = (stack->index / (size / buckets + 1) + 1);
-		stack = stack->next;
-	}
-	stack->bucket = (stack->index / (size / buckets + 1) + 1);
-}
-
 /* Returns the max index of a stack. */
 int	ft_find_max(t_stack *stack)
 {
@@ -67,6 +53,7 @@ int	ft_find_max(t_stack *stack)
 	}
 	return (max);
 }
+
 /* Returns the min index of a stack. */
 int	ft_find_min(t_stack *stack)
 {
@@ -86,22 +73,38 @@ int	ft_find_min(t_stack *stack)
 	return (min);
 }
 
-/* Returns the average index of a stack. */
+/* Returns the average of unsorted indexes in a stack. */
 int	ft_stack_avg(t_stack *stack)
 {
 	int		i;
-	int		size;
 	float	total;
 
 	if (!stack)
 		return (0);
-	size = ft_stack_size(stack);
 	i = 0;
 	total = 0;
-	while (i++ < size)
+	while (stack->next)
 	{
-		total += stack->index;
+		if (!stack->sorted)
+		{
+			total += stack->index;
+			i++;
+		}
 		stack = stack->next;
 	}
-	return ((int)(total / size + 0.5));
+	return ((int)(total / i + 0.5));
 }
+
+/* Not currently used. */
+// void	ft_bucketize(t_stack *stack, int buckets)
+// {
+// 	int	size;
+
+// 	size = ft_stack_size(stack);
+// 	while (stack->next)
+// 	{
+// 		stack->bucket = (stack->index / (size / buckets + 1) + 1);
+// 		stack = stack->next;
+// 	}
+// 	stack->bucket = (stack->index / (size / buckets + 1) + 1);
+// }
