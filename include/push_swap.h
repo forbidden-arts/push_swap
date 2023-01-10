@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 18:33:20 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 19:31:45 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int		ft_find_bwd_a(t_stack *stack, int b);
 /*		Quicksort				*/
 void	ft_part_a(t_stack **a, t_stack **b);
 void	ft_part_b(t_stack **a, t_stack **b);
-int		ft_opportunity(t_stack **a, t_stack **b);
+void	ft_opportunity(t_stack **a, t_stack **b);
 
 /*		Misc					*/
 void	ft_print_stack(t_stack *a);

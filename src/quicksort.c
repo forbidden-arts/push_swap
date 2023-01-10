@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 18:23:08 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 19:31:32 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ void	ft_part_a(t_stack **a, t_stack **b)
 	int	pivot;
 	int	size;
 
-	pivot = (ft_find_min(*a) + ft_find_max(*a) + 1) / 2;
+	pivot = (ft_find_min(*a) + ft_find_max(*a)) / 2 + 1;
 	size = (ft_unsort(*a) / 2);
-	ft_printf("pivot:%d fwd: %d, bwd: %d\n", pivot, ft_find_fwd_a(*a, pivot), ft_find_bwd_a(*a, pivot));
-	while (ft_s_size(*b) < size && ft_s_size(*a) > 3)
+	while (ft_find_min(*a) < pivot && ft_s_size(*a) > 3)
 	{
 		if (!ft_find_fwd(*a, pivot))
 			ft_do_op(a, b, PB);
 		else
 			ft_smart_rotate_a(a, b, pivot);
 	}
+	if (ft_s_size(*a) <= 3)
+		ft_sort_mini_a(a, b);
 }
 
 void	ft_part_b(t_stack **a, t_stack **b)
@@ -34,28 +35,22 @@ void	ft_part_b(t_stack **a, t_stack **b)
 	int	pivot;
 	int	size;
 
-	pivot = (ft_find_min(*b) + ft_find_max(*b) + 1) / 2;
+	pivot = (ft_find_min(*b) + ft_find_max(*b)) / 2;
 	size = (ft_unsort(*b) / 2);
-	ft_printf("pivot:%d fwd: %d, bwd: %d\n", pivot, ft_find_fwd_a(*b, pivot), ft_find_bwd_a(*b, pivot));
-	ft_print_stack(*b);
-	while (size && ft_s_size(*b) > 3)
+	// ft_printf("pivot:%d fwd: %d, bwd: %d\n", pivot, ft_find_fwd_a(*b, pivot), ft_find_bwd_a(*b, pivot));
+	while (ft_find_max(*b) > pivot && ft_s_size(*b) > 3)
 	{
-		if (ft_opportunity(a, b))
-		{
-			size--;
-			continue ;
-		}
+		ft_opportunity(a, b);
 		if (!ft_find_fwd_a(*b, pivot))
-		{
 			ft_do_op(a, b, PA);
-			size--;
-		}
 		else
 			ft_smart_rotate_b(a, b, pivot);
+		// ft_print_stack(*b);
+		ft_printf("max: %d pivot:%d fwd: %d, bwd: %d\n",ft_find_max(*b), pivot, ft_find_fwd_a(*b, pivot), ft_find_bwd_a(*b, pivot));
 	}
 }
 
-int	ft_opportunity(t_stack **a, t_stack **b)
+void	ft_opportunity(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -65,7 +60,5 @@ int	ft_opportunity(t_stack **a, t_stack **b)
 		(*b)->sorted = 1;
 		ft_do_op(a, b, PA);
 		ft_do_op(a, b, RA);
-		return (1);
 	}
-	return (0);
 }
