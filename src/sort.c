@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 15:12:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:21:03 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 	else
 	{
 		ft_part_a(a, b);
-		ft_print_stack(*a);
-		ft_print_stack(*b);
 	}
 }
 
