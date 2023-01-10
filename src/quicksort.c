@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 19:42:35 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 22:00:46 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,12 @@ void	ft_part_b(t_stack **a, t_stack **b)
 			ft_smart_rotate_b(a, b, pivot);
 	}
 	if (ft_s_size(*b) <= 3)
-		ft_printf("rev sorted? %d\n", ft_is_sorted(*b, -1));
-}
-
-void	ft_opportunity(t_stack **a, t_stack **b)
-{
-	t_stack	*tmp;
-
-	tmp = ft_stack_last(*a);
-	if ((*b)->index == 1 || (*b)->index == tmp->index + 1)
 	{
-		(*b)->sorted = 1;
-		ft_do_op(a, b, PA);
-		ft_do_op(a, b, RA);
+		ft_sort_mini_b(a, b);
+		ft_do_op_n(a, b, PA, ft_s_size(*b));	
 	}
 }
 
-		// // ft_print_stack(*b);
-		// ft_printf("max: %d pivot:%d fwd: %d, bwd: %d\n",ft_find_max(*b),
-		//	pivot, ft_find_fwd_a(*b, pivot), ft_find_bwd_a(*b, pivot));
+/* TODO: QUICKSORT!
+
+*/
