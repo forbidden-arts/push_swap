@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 11:51:47 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:13:03 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ft_do_op_n(t_stack **a, t_stack **b, char *op, int n);
 
 /*		Sort					*/
 void	ft_sort_control(t_stack **a, t_stack **b);
-void	ft_sort_mini(t_stack **a, t_stack **b);
+void	ft_sort_mini_a(t_stack **a);
 void	ft_sort_small(t_stack **a, t_stack **b);
 void	ft_merge(t_stack **a, t_stack **b);
 

@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 11:59:42 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:14:55 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 		return ;
 	ft_assign_index(*a);
 	if (size <= 3)
-		ft_sort_mini(a, b);
-	else if (size <= 5)
+		ft_sort_mini_a(a);
+	else if (size < 6)
 	{
 		while (ft_s_size(*a) > 3)
 			ft_do_op(a, b, PB);
-		ft_sort_mini(a, b);
+		ft_sort_mini_a(a);
 		while (ft_s_size(*b))
 			ft_sort_small(a, b);
 		ft_top_a(a, 1);
@@ -39,19 +39,19 @@ void	ft_sort_control(t_stack **a, t_stack **b)
 	// }
 }
 
-void	ft_sort_mini(t_stack **a, t_stack **b)
+void	ft_sort_mini_a(t_stack **a)
 {
 	if (ft_s_size(*a) == 2)
-		ft_do_op(a, b, SA);
+		ft_do_op(a, NULL, SA);
 	while (!ft_is_sorted(*a))
 	{
 		if ((*a)->index > (*a)->next->index && (*a)->index
 			> (*a)->next->next->index)
-			ft_do_op(a, b, RA);
+			ft_do_op(a, NULL, RA);
 		else if ((*a)->index > (*a)->next->next->index)
-			ft_do_op(a, b, RRA);
+			ft_do_op(a, NULL, RRA);
 		else
-			ft_do_op(a, b, SA);
+			ft_do_op(a, NULL, SA);
 	}
 }
 
@@ -88,7 +88,7 @@ void	ft_sort_stacks(t_stack **a, t_stack **b)
 			ft_do_op_n(a, b, RRA, ft_s_size(*a) - ft_find_last(*a, i));
 		ft_do_op(a, b, PB);
 	}
-	ft_sort_mini(a);
+	ft_sort_mini_a(a);
 	while ((*b))
 		ft_push_back(a, b);
 	while (!ft_is_sorted(*a))
