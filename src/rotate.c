@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:37:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 17:41:06 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:15:03 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_smart_rotate_a(t_stack **a, t_stack **b, int i)
 /* B-Smart happens 1 step at a time to allow for opportunistic moves. */
 void	ft_smart_rotate_b(t_stack **a, t_stack **b, int i)
 {
+	// ft_printf("pivot: %d fwd: %d bwd: %d\n", i, ft_find_fwd_a(*b, i), ft_find_bwd_a(*b, i));
+	// ft_print_stack(*b);
 	if (ft_find_fwd_a(*b, i) <= ft_find_bwd_a(*b, i))
 		ft_do_op(a, b, RB);
 	else

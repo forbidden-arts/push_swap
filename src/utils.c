@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 16:17:17 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:34:50 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,28 @@ long	ft_stk_atoi(const char *str)
 }
 
 /* Checks whether a stack is sorted. */
-int	ft_is_sorted(t_stack *a)
+int	ft_is_sorted(t_stack *a, int dir)
 {
-	while (a->next)
+	if (dir > 0)
 	{
-		if (a->value > a->next->value)
-			return (0);
-		a = a->next;
+		while (a->next)
+		{
+			if (a->value > a->next->value)
+				return (0);
+			a = a->next;
+		}
+		return (1);
 	}
-	return (1);
+	else
+	{
+		while (a->next)
+		{
+			if (a->value < a->next->value)
+				return (0);
+			a = a->next;
+		}
+		return (1);
+	}
 }
 
 /* Returns the position relative to the top of the stack of N */

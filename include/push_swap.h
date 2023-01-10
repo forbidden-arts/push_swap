@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 17:20:42 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 18:33:20 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_stack	*ft_build_stack(t_stack *a, char **argv);
 
 /*		General Utilities		*/
 int		ft_get_pos(t_stack *stack, int n);
-int		ft_is_sorted(t_stack *a);
+int		ft_is_sorted(t_stack *a, int dir);
 long	ft_stk_atoi(const char *str);
 int		ft_s_size(t_stack *stack);
 int		ft_unsort(t_stack *stack);
@@ -86,7 +86,8 @@ int		ft_match(char *a, char *b);
 
 /*		Sort					*/
 void	ft_sort_control(t_stack **a, t_stack **b);
-void	ft_sort_mini_a(t_stack **a);
+void	ft_sort_mini_a(t_stack **a, t_stack **b);
+void	ft_sort_mini_b(t_stack **a, t_stack **b);
 void	ft_sort_small(t_stack **a, t_stack **b);
 
 /*		Rotate					*/
@@ -104,6 +105,7 @@ int		ft_find_bwd_a(t_stack *stack, int b);
 /*		Quicksort				*/
 void	ft_part_a(t_stack **a, t_stack **b);
 void	ft_part_b(t_stack **a, t_stack **b);
+int		ft_opportunity(t_stack **a, t_stack **b);
 
 /*		Misc					*/
 void	ft_print_stack(t_stack *a);
