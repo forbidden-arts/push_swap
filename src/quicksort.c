@@ -6,11 +6,15 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 22:00:46 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 22:24:18 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*	More QuickSort inspired than actual Q-Sort. The two stack limitation is a 
+	major pain in the ass, and makes what could potentially be a rather simple
+	implementation a mind-bending nightmare. */
 
 void	ft_part_a(t_stack **a, t_stack **b)
 {
@@ -44,10 +48,17 @@ void	ft_part_b(t_stack **a, t_stack **b)
 	if (ft_s_size(*b) <= 3)
 	{
 		ft_sort_mini_b(a, b);
-		ft_do_op_n(a, b, PA, ft_s_size(*b));	
+		ft_do_op_n(a, b, PA, ft_s_size(*b));
 	}
 }
 
 /* TODO: QUICKSORT!
-
+	1) Need to test out particular sizes of B to figure out where is a good
+	stopping point. This can also be caluclated instead of hard-coded in.
+	Current options are:
+		a) 13
+		b) 20
+		c) 7
+	2) Make a copy of to_top_a for use with B and have it go one step at a
+	time, so I can check for any quick wins.
 */
