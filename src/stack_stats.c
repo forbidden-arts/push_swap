@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 12:25:13 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 15:25:13 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_assign_index(t_stack *stack)
 	}
 }
 
-/* Returns the max index of a stack. */
+/* Returns the max index of a stack that is not already "sorted". */
 int	ft_find_max(t_stack *stack)
 {
 	int	max;
@@ -54,7 +54,7 @@ int	ft_find_max(t_stack *stack)
 	return (max);
 }
 
-/* Returns the min index of a stack. */
+/* Returns the min index of a stack that is not already "sorted". */
 int	ft_find_min(t_stack *stack)
 {
 	int	min;
