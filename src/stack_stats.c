@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 18:28:53 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:25:13 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,26 +74,26 @@ int	ft_find_min(t_stack *stack)
 }
 
 /* Returns the average of unsorted indexes in a stack. */
-int	ft_stack_avg(t_stack *stack)
-{
-	int		i;
-	float	total;
+// int	ft_stack_avg(t_stack *stack)
+// {
+// 	int		i;
+// 	float	total;
 
-	if (!stack)
-		return (0);
-	i = 0;
-	total = 0;
-	while (stack->next)
-	{
-		if (!stack->sorted)
-		{
-			total += stack->index;
-			i++;
-		}
-		stack = stack->next;
-	}
-	return ((int)(total / i));
-}
+// 	if (!stack)
+// 		return (0);
+// 	i = 0;
+// 	total = 0;
+// 	while (stack->next)
+// 	{
+// 		if (!stack->sorted)
+// 		{
+// 			total += stack->index;
+// 			i++;
+// 		}
+// 		stack = stack->next;
+// 	}
+// 	return ((int)(total / i));
+// }
 
 /* Not currently used. */
 // void	ft_bucketize(t_stack *stack, int buckets)

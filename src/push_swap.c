@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 10:40:47 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:34:17 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_print_stack(t_stack *a)
 	tmp = a;
 	while (tmp != NULL)
 	{
-		ft_printf("num: %d idx: %d sort: %d\n",
-			tmp->value, tmp->index, tmp->sorted);
+		ft_printf("num: %d idx: %d sort: %d, push:%d, loc: %s\n",
+			tmp->value, tmp->index, tmp->sorted, tmp->pushed, tmp->loc);
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
@@ -39,7 +39,12 @@ int	main(int argc, char **argv)
 	a = ft_build_stack(a, argv);
 	ft_chk_dup_stack(a);
 	ft_sort_control(&a, &b);
-
+	ft_do_op_n(&a, &b, PB, 3);
+	ft_print_stack(a);
+	ft_print_stack(b);
+	ft_do_op_n(&a, &b, PA, 2);
+	ft_print_stack(a);
+	ft_print_stack(b);
 	return (0);
 }
 

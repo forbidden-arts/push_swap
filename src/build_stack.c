@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:59:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 10:21:43 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:27:22 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*ft_make_new_stack(int i)
 	new->index = -1;
 	new->pushed = 0;
 	new->sorted = 0;
-	new->current = "a";
+	new->loc = "a";
 	new->next = NULL;
 	return (new);
 }

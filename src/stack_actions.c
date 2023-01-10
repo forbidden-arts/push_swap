@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 13:16:36 by dpalmer           #+#    #+#             */
-/*   Updated: 2022/12/30 21:33:28 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:32:29 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_match(char *a, char *b)
+int	ft_match(char *a, char *b)
 {
 	if (ft_strncmp(a, b, ft_strlen(a)) == 0)
 		return (1);

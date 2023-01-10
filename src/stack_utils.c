@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:30:18 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 18:21:05 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:32:14 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ void	ft_push_stack(t_stack **dst, t_stack **src)
 		return ;
 	tmp = *src;
 	*src = (*src)->next;
+	if (ft_match(tmp->loc, "a"))
+		tmp->loc = "b";
+	else
+		tmp->loc = "a";
 	ft_stack_add_head(dst, tmp);
 }
 

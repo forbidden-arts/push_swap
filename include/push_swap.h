@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 12:13:03 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:32:45 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_stack
 	int				index;
 	int				sorted;
 	int				pushed;
-	char			*current;
+	char			*loc;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -77,17 +77,17 @@ t_stack	*ft_stack_sec_last(t_stack *stack);
 void	ft_assign_index(t_stack *stack);
 int		ft_find_max(t_stack *stack);
 int		ft_find_min(t_stack *stack);
-int		ft_stack_avg(t_stack *stack);
+// int		ft_stack_avg(t_stack *stack);
 
 /*		Stack Actions			*/
 void	ft_do_op(t_stack **a, t_stack **b, char *op);
 void	ft_do_op_n(t_stack **a, t_stack **b, char *op, int n);
+int		ft_match(char *a, char *b);
 
 /*		Sort					*/
 void	ft_sort_control(t_stack **a, t_stack **b);
 void	ft_sort_mini_a(t_stack **a);
 void	ft_sort_small(t_stack **a, t_stack **b);
-void	ft_merge(t_stack **a, t_stack **b);
 
 /*		Rotate					*/
 int		ft_smart_rotate(t_stack **stack, int i);
