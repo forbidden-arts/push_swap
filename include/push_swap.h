@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 15:31:00 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:06:39 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void	ft_top_a(t_stack **stack, int i);
 int		ft_find_fwd(t_stack *stack, int b);
 int		ft_find_bwd(t_stack *stack, int b);
 int		ft_find_next(t_stack *stack, int b);
-int		ft_find_prev(t_stack *stack, int b);
+int		ft_find_fwd_a(t_stack *stack, int b);
+int		ft_find_bwd_a(t_stack *stack, int b);
 
 /*		Quicksort				*/
 void	ft_part_a(t_stack **a, t_stack **b);

@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 15:22:01 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:10:03 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int	ft_find_bwd(t_stack *stack, int b)
 			i = stack->index;
 		stack = stack->next;
 	}
-	if (stack->index < b)
-		i = stack->index;
 	return (ft_s_size(tmp) - ft_get_pos(tmp, i) + 1);
 }
 
@@ -67,19 +65,57 @@ int	ft_find_next(t_stack *stack, int b)
 	return (i);
 }
 
-int	ft_find_prev(t_stack *stack, int b)
+/* Finds the closest index higher than the given number. */
+int	ft_find_fwd_a(t_stack *stack, int b)
 {
 	int	i;
 
+	if (!stack)
+		return (0);
 	i = 0;
-	while (stack->next)
+	while (stack->index <= b)
 	{
-		if (stack->index > i && stack->index < b)
-			i = stack->index;
+		if (!stack->next)
+			break ;
 		stack = stack->next;
+		i++;
 	}
 	return (i);
 }
+
+int	ft_find_bwd_a(t_stack *stack, int b)
+{
+	int		i;
+	t_stack	*tmp;
+
+	if (!stack)
+		return (0);
+	i = 0;
+	tmp = stack;
+	while (stack->next)
+	{
+		if (stack->index >= b)
+			i = stack->index;
+		stack = stack->next;
+	}
+	if (stack->index >= b)
+		i = stack->index;
+	return (ft_s_size(tmp) - ft_get_pos(tmp, i) + 1);
+}
+
+// int	ft_find_prev(t_stack *stack, int b)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (stack->next)
+// 	{
+// 		if (stack->index > i && stack->index < b)
+// 			i = stack->index;
+// 		stack = stack->next;
+// 	}
+// 	return (i);
+// }
 
 /* Not currently used. Remnant of bucketing */
 // int	ft_find_next(t_stack *stack, int b)

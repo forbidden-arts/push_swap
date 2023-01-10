@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 15:25:13 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:14:14 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,11 @@ void	ft_assign_index(t_stack *stack)
 int	ft_find_max(t_stack *stack)
 {
 	int	max;
-	int	size;
 
 	if (!stack)
 		return (0);
 	max = 0;
-	size = ft_s_size(stack);
-	while (size--)
+	while (stack->next)
 	{
 		if (stack->index > max && !stack->sorted)
 			max = stack->index;
@@ -58,13 +56,11 @@ int	ft_find_max(t_stack *stack)
 int	ft_find_min(t_stack *stack)
 {
 	int	min;
-	int	size;
 
 	if (!stack)
 		return (0);
-	size = ft_s_size(stack);
 	min = INT_MAX;
-	while (size--)
+	while (stack->next)
 	{
 		if (min > stack->index && !stack->sorted)
 			min = stack->index;

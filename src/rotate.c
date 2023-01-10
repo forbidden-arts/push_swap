@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:37:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 15:31:00 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:10:17 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Finds a number less than "i" and returns direction. */
+/* Makes the shortest possible move to bring that number to the top. */
 void	ft_smart_rotate_a(t_stack **stack, int i)
 {
 	if (ft_find_fwd(*stack, i) <= ft_find_bwd(*stack, i))
@@ -20,6 +20,11 @@ void	ft_smart_rotate_a(t_stack **stack, int i)
 	else
 		ft_do_op_n(stack, NULL, RRA, ft_find_bwd(*stack, i));
 }
+
+// void	ft_smart_rotate_b(t_stack **stack, int i)
+// {
+
+// }
 
 /* Moves int "i" to the top the quickest way by indicating direction */
 void	ft_top_a(t_stack **stack, int i)
