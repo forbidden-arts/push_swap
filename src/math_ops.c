@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 18:30:58 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:57:11 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,35 @@ int	ft_find_bwd(t_stack *stack, int b)
 	return (ft_s_size(tmp) - ft_get_pos(tmp, i) + 1);
 }
 
+int	ft_find_next(t_stack *stack, int b)
+{
+	int	i;
+
+	i = INT_MAX;
+	while (stack)
+	{
+		if (stack->index >= b && stack->index < i)
+			i = stack->index;
+		stack = stack->next;
+	}
+	if (i == INT_MAX)
+		return (0);
+	return (i);
+}
+
+int	ft_find_prev(t_stack *stack, int b)
+{
+	int	i;
+
+	i = 0;
+	while (stack->next)
+	{
+		if (stack->index > i && stack->index < b)
+			i = stack->index;
+		stack = stack->next;
+	}
+	return (i);
+}
 
 /* Not currently used. Remnant of bucketing */
 // int	ft_find_next(t_stack *stack, int b)
