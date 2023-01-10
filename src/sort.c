@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 11:20:13 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:25:56 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ void	ft_sort_mini(t_stack **a, t_stack **b)
 
 void	ft_sort_small(t_stack **a, t_stack **b)
 {
-	int		size;
 	t_stack	*tmp;
 
-	size = ft_s_size(*a);
 	tmp = ft_stack_last(*a);
 	if (ft_s_size(*b) > 1 && (*b)->index < (*b)->next->index)
 		ft_do_op(a, b, SB);
