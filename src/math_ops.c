@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 16:10:03 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 19:45:37 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_find_fwd_a(t_stack *stack, int b)
 	if (!stack)
 		return (0);
 	i = 0;
-	while (stack->index <= b)
+	while (stack->index < b)
 	{
 		if (!stack->next)
 			break ;
@@ -94,7 +94,7 @@ int	ft_find_bwd_a(t_stack *stack, int b)
 	tmp = stack;
 	while (stack->next)
 	{
-		if (stack->index >= b)
+		if (stack->index > b)
 			i = stack->index;
 		stack = stack->next;
 	}

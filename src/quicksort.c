@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 19:31:32 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 19:42:35 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	ft_part_a(t_stack **a, t_stack **b)
 {
 	int	pivot;
-	int	size;
 
 	pivot = (ft_find_min(*a) + ft_find_max(*a)) / 2 + 1;
-	size = (ft_unsort(*a) / 2);
 	while (ft_find_min(*a) < pivot && ft_s_size(*a) > 3)
 	{
 		if (!ft_find_fwd(*a, pivot))
@@ -33,11 +31,8 @@ void	ft_part_a(t_stack **a, t_stack **b)
 void	ft_part_b(t_stack **a, t_stack **b)
 {
 	int	pivot;
-	int	size;
 
 	pivot = (ft_find_min(*b) + ft_find_max(*b)) / 2;
-	size = (ft_unsort(*b) / 2);
-	// ft_printf("pivot:%d fwd: %d, bwd: %d\n", pivot, ft_find_fwd_a(*b, pivot), ft_find_bwd_a(*b, pivot));
 	while (ft_find_max(*b) > pivot && ft_s_size(*b) > 3)
 	{
 		ft_opportunity(a, b);
@@ -45,9 +40,9 @@ void	ft_part_b(t_stack **a, t_stack **b)
 			ft_do_op(a, b, PA);
 		else
 			ft_smart_rotate_b(a, b, pivot);
-		// ft_print_stack(*b);
-		ft_printf("max: %d pivot:%d fwd: %d, bwd: %d\n",ft_find_max(*b), pivot, ft_find_fwd_a(*b, pivot), ft_find_bwd_a(*b, pivot));
 	}
+	if (ft_s_size(*b) <= 3)
+		ft_printf("rev sorted? %d\n", ft_is_sorted(*b, -1));
 }
 
 void	ft_opportunity(t_stack **a, t_stack **b)
@@ -62,3 +57,7 @@ void	ft_opportunity(t_stack **a, t_stack **b)
 		ft_do_op(a, b, RA);
 	}
 }
+
+		// // ft_print_stack(*b);
+		// ft_printf("max: %d pivot:%d fwd: %d, bwd: %d\n",ft_find_max(*b),
+		//	pivot, ft_find_fwd_a(*b, pivot), ft_find_bwd_a(*b, pivot));
