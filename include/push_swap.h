@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/09 20:03:12 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/10 10:39:06 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_stack
 	int				index;
 	int				sorted;
 	int				pushed;
+	char			*current;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -90,7 +91,7 @@ void	ft_merge(t_stack **a, t_stack **b);
 
 /*		Rotate					*/
 int		ft_smart_rotate(t_stack **stack, int i);
-void	ft_to_top_a(t_stack **stack, int i);
+void	ft_top_a(t_stack **stack, int i);
 
 /*		Math Ops				*/
 int		ft_find_fwd(t_stack *stack, int b);
