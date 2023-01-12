@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/12 15:56:16 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:26:08 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_part_a(t_stack **a, t_stack **b)
 	if (ft_s_size(*b) || (*a)->pushed)
 		return ;
 	pivot = ((ft_find_min(*a) + ft_find_max(*a)) / 2 + 1 -(ft_s_size(*a) % 2));
-	if (ft_unsort(*a) < STACKMAX)
-		pivot = ft_find_max(*a) + 1;
+	if (ft_unsort(*a) < STACKMAX / 2)
+		pivot += pivot / 2;
 	while (ft_find_min(*a) < pivot)
 	{
 		if (!ft_find_fwd(*a, pivot))
