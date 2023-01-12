@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/12 14:32:03 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:33:27 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_print_stack(t_stack *a)
 	tmp = a;
 	while (tmp != NULL)
 	{
-		ft_printf("num: %d idx: %d sort: %d, push:%d, loc: %s\n",
-			tmp->value, tmp->index, tmp->sorted, tmp->pushed, tmp->loc);
+		ft_printf("idx: %d sort: %d, push:%d, loc: %s\n",
+			tmp->index, tmp->sorted, tmp->pushed, tmp->loc);
 		tmp = tmp->next;
 	}
 	ft_printf("\n");

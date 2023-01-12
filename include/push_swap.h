@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/12 14:40:48 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:06:12 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #  define INT_MAX 2147483647
 # endif
 
-# define STACKMAX 27
+# define STACKMAX 24
 
 # define SA "sa"
 # define SB "sb"

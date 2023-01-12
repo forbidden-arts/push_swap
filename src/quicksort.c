@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/12 14:27:21 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:56:16 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_part_a(t_stack **a, t_stack **b)
 	if (ft_s_size(*b) || (*a)->pushed)
 		return ;
 	pivot = ((ft_find_min(*a) + ft_find_max(*a)) / 2 + 1 -(ft_s_size(*a) % 2));
+	if (ft_unsort(*a) < STACKMAX)
+		pivot = ft_find_max(*a) + 1;
 	while (ft_find_min(*a) < pivot)
 	{
 		if (!ft_find_fwd(*a, pivot))
@@ -38,6 +40,8 @@ void	ft_part_b(t_stack **a, t_stack **b)
 
 	if (ft_unsort(*a) < ft_s_size(*a))
 		ft_sort_to_bot(a);
+	if (ft_s_size(*b) < STACKMAX)
+		return ;
 	pivot = (ft_find_min(*b) + ft_find_max(*b)) / 2 + 1 -(ft_s_size(*b) % 2);
 	while (ft_find_max(*b) > pivot)
 	{
@@ -45,7 +49,7 @@ void	ft_part_b(t_stack **a, t_stack **b)
 		if (!ft_find_fwd_a(*b, pivot))
 			ft_do_op(a, b, PA);
 		else
-			ft_smart_rotate_b(a, b, pivot);
+			ft_smart_rotate_b(a, b, ft_find_max(*b));
 	}
 	if (ft_s_size(*b) > STACKMAX)
 		ft_part_b(a, b);
@@ -96,68 +100,15 @@ void	ft_quick(t_stack **a, t_stack **b)
 {
 	ft_push_back(a, b);
 	ft_part_a(a, b);
+	// ft_print_stack(*a);
+	// ft_print_stack(*b);
 	ft_part_b(a, b);
+	// ft_print_stack(*a);
+	// ft_print_stack(*b);
 	ft_empty_b(a, b);
+	// ft_print_stack(*a);
+	// ft_print_stack(*b);
 	ft_sort_to_bot(a);
 	if (ft_unsort(*a))
 		ft_quick(a, b);
-
-// 	ft_printf("1 Loop Done\n\n");
-// 	ft_print_stack(*a);
-// 	ft_print_stack(*b);
-// 	ft_push_back(a, b);
-// 	ft_part_a(a, b);
-// 	ft_part_b(a, b);
-// 	ft_empty_b(a, b);
-// 	ft_sort_to_bot(a);
-// ft_printf("2 Loop Done\n\n");
-// 	ft_print_stack(*a);
-// 	ft_print_stack(*b);
-// 	ft_push_back(a, b);
-// 	ft_part_a(a, b);
-// 	ft_part_b(a, b);
-// 	ft_empty_b(a, b);
-// 	ft_sort_to_bot(a);
-// ft_printf("3 Loop Done\n\n");
-// 	ft_print_stack(*a);
-// 	ft_print_stack(*b);
-// 	ft_push_back(a, b);
-// 	ft_part_a(a, b);
-// 	ft_part_b(a, b);
-// 	ft_empty_b(a, b);
-// 	ft_sort_to_bot(a);
-// ft_printf("4 Loop Done\n\n");
-// 	ft_print_stack(*a);
-// 	ft_print_stack(*b);
-// 	ft_push_back(a, b);
-// 	ft_part_a(a, b);
-// 	ft_part_b(a, b);
-// 	ft_empty_b(a, b);
-// 	ft_sort_to_bot(a);
-// ft_printf("5 Loop Done\n\n");
-// 	ft_print_stack(*a);
-// 	ft_print_stack(*b);
-// 	ft_push_back(a, b);
-// 	ft_part_a(a, b);
-// 	ft_part_b(a, b);
-// 	ft_empty_b(a, b);
-// 	ft_sort_to_bot(a);
-// ft_printf("6 Loop Done\n\n");
-// 	ft_print_stack(*a);
-// 	ft_print_stack(*b);
 }
-
-/* TODO: QUICKSORT!
-	1) Need to test out particular sizes of B to figure out where is a good
-	stopping point. This can also be caluclated instead of hard-coded in.
-	Current options are:
-		a) 13
-		b) 20
-		c) 7
-	2) Make a copy of to_top_a for use with B and have it go one step at a
-	time, so I can check for any quick wins.
-*/
-	// ft_printf("----A----\n");
-	// ft_print_stack(*a);
-	// ft_printf("----B----\n");
-	// ft_print_stack(*b);
