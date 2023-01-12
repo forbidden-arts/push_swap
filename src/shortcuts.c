@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:48:44 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 22:00:00 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 12:36:46 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_opportunity(t_stack **a, t_stack **b)
+int	ft_opportunity(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
@@ -22,5 +22,7 @@ void	ft_opportunity(t_stack **a, t_stack **b)
 		(*b)->sorted = 1;
 		ft_do_op(a, b, PA);
 		ft_do_op(a, b, RA);
+		return (1);
 	}
+	return (0);
 }

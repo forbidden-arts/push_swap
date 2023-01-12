@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 21:50:34 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:40:48 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # ifndef INT_MAX
 #  define INT_MAX 2147483647
 # endif
+
+# define STACKMAX 27
 
 # define SA "sa"
 # define SB "sb"
@@ -94,6 +96,7 @@ void	ft_sort_small(t_stack **a, t_stack **b);
 void	ft_smart_rotate_a(t_stack **a, t_stack **b, int i);
 void	ft_smart_rotate_b(t_stack **a, t_stack **b, int i);
 void	ft_top_a(t_stack **stack, int i);
+void	ft_sort_to_bot(t_stack **stack);
 
 /*		Math Ops				*/
 int		ft_find_fwd(t_stack *stack, int b);
@@ -105,10 +108,12 @@ int		ft_find_bwd_a(t_stack *stack, int b);
 /*		Quicksort				*/
 void	ft_part_a(t_stack **a, t_stack **b);
 void	ft_part_b(t_stack **a, t_stack **b);
-void	ft_opportunity(t_stack **a, t_stack **b);
+void	ft_push_back(t_stack **a, t_stack **b);
+void	ft_empty_b(t_stack **a, t_stack **b);
+void	ft_quick(t_stack **a, t_stack **b);
 
 /*		Shortcuts				*/
-
+int		ft_opportunity(t_stack **a, t_stack **b);
 
 /*		Misc					*/
 void	ft_print_stack(t_stack *a);

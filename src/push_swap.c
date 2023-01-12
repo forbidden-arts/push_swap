@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 18:23:31 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:32:03 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,40 +39,7 @@ int	main(int argc, char **argv)
 	a = ft_build_stack(a, argv);
 	ft_chk_dup_stack(a);
 	ft_sort_control(&a, &b);
-	ft_printf("size a: %d size b: %d\nunsorted a: %d\n", ft_s_size(a), ft_s_size(b), ft_unsort(a));
-	ft_print_stack(a);
-	ft_print_stack(b);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
 }
-
-	// ft_smart_rotate_b(&a, &b, 25);
-	// ft_printf("fwd_a: %d, bwd_a: %d", ft_find_fwd_a(a, 3), ft_find_bwd_a(a, 3));
-
-	// ft_printf("min: %d avg: %d\n", ft_find_min(a), (ft_find_max(a)+ft_find_min(a))/2);
-	// ft_printf("first unsorted: %d last unsorted: %d u_size: %d\n", ft_find_fwd(a, 4), ft_find_bwd(a, 4), ft_unsort(a));
-	// a->sorted = 1;
-	// a->next->sorted = 1;
-	// ft_printf("min: %d avg: %d\n", ft_find_min(a), (ft_find_max(a)+ft_find_min(a))/2);
-	// ft_do_op_n(&a, &b, PB, 3);
-	// ft_do_op_n(&a, &b, PA, 3);
-	// ft_print_stack(a);
-	// ft_printf("first unsorted: %d last unsorted: %d u_size: %d\n", ft_find_fwd(a, 4), ft_find_bwd(a, 4), ft_unsort(a));
-// ft_printf("dir: %d", ft_top_a(&a, 5));
-//TODO: FIX AVERAGE, ADJUST FOR UNSORTED.
-	// ft_print_stack(a);
-	// ft_do_op_n(&a, &b, PB, 5);
-	// // ft_printf("%d, %d\n", ft_find_fwd(a, ft_stack_avg(a)), ft_find_bwd(a, ft_stack_avg(a)));
-	// // ft_printf("%d\n", ft_stack_avg(a));
-	// // ft_smart_rotate_a_a(&a, ft_stack_avg(a));
-
-	// ft_top_a(&a, &b, 3);
-	// ft_print_stack(b);
-	// // ft_do_op_n(&a, &b, PB, 3);
-	// // ft_printf("Min: %d, Max: %d\n", ft_find_min(b), ft_find_max(b));
-	// // ft_printf("%d\n", ft_stack_avg(b));
-	// ft_printf("size: %d\n", ft_unsort(a));
-	// a->sorted = 1;
-	// a->next->sorted = 1;
-	// ft_printf("size: %d\n", ft_unsort(a));

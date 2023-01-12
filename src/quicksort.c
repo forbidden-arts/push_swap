@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 22:24:18 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:27:21 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*	More QuickSort inspired than actual Q-Sort. The two stack limitation is a 
+/*	More QuickSort inspired than actual Q-Sort. The two stack limitation is a
 	major pain in the ass, and makes what could potentially be a rather simple
 	implementation a mind-bending nightmare. */
 
@@ -20,24 +20,26 @@ void	ft_part_a(t_stack **a, t_stack **b)
 {
 	int	pivot;
 
-	pivot = (ft_find_min(*a) + ft_find_max(*a)) / 2 + 1;
-	while (ft_find_min(*a) < pivot && ft_s_size(*a) > 3)
+	if (ft_s_size(*b) || (*a)->pushed)
+		return ;
+	pivot = ((ft_find_min(*a) + ft_find_max(*a)) / 2 + 1 -(ft_s_size(*a) % 2));
+	while (ft_find_min(*a) < pivot)
 	{
 		if (!ft_find_fwd(*a, pivot))
 			ft_do_op(a, b, PB);
 		else
 			ft_smart_rotate_a(a, b, pivot);
 	}
-	if (ft_s_size(*a) <= 3)
-		ft_sort_mini_a(a, b);
 }
 
 void	ft_part_b(t_stack **a, t_stack **b)
 {
 	int	pivot;
 
-	pivot = (ft_find_min(*b) + ft_find_max(*b)) / 2;
-	while (ft_find_max(*b) > pivot && ft_s_size(*b) > 3)
+	if (ft_unsort(*a) < ft_s_size(*a))
+		ft_sort_to_bot(a);
+	pivot = (ft_find_min(*b) + ft_find_max(*b)) / 2 + 1 -(ft_s_size(*b) % 2);
+	while (ft_find_max(*b) > pivot)
 	{
 		ft_opportunity(a, b);
 		if (!ft_find_fwd_a(*b, pivot))
@@ -45,11 +47,104 @@ void	ft_part_b(t_stack **a, t_stack **b)
 		else
 			ft_smart_rotate_b(a, b, pivot);
 	}
-	if (ft_s_size(*b) <= 3)
+	if (ft_s_size(*b) > STACKMAX)
+		ft_part_b(a, b);
+}
+
+void	ft_push_back(t_stack **a, t_stack **b)
+{
+	int		pushme;
+	t_stack	*tmp;
+
+	tmp = ft_stack_last(*a);
+	pushme = (*a)->pushed;
+	if ((*a)->index == tmp->index + 1 && tmp->sorted)
 	{
-		ft_sort_mini_b(a, b);
-		ft_do_op_n(a, b, PA, ft_s_size(*b));
+		(*a)->sorted = 1;
+		ft_do_op(a, b, RA);
+		ft_push_back(a, b);
 	}
+	else if (!pushme || ft_s_size(*b))
+		return ;
+	while ((*a)->pushed == pushme && !((*a)->sorted))
+	{
+		tmp = ft_stack_last(*a);
+		if ((*a)->index == tmp->index + 1 && tmp->sorted)
+		{
+			(*a)->sorted = 1;
+			ft_do_op(a, b, RA);
+		}
+		else
+			ft_do_op(a, b, PB);
+	}
+}
+
+void	ft_empty_b(t_stack **a, t_stack **b)
+{
+	while (ft_s_size(*b))
+	{
+		if (ft_opportunity(a, b))
+			continue ;
+		else if ((*b)->index == ft_find_max(*b))
+			ft_do_op(a, b, PA);
+		else
+			ft_smart_rotate_b(a, b, ft_find_max(*b));
+	}
+}
+
+void	ft_quick(t_stack **a, t_stack **b)
+{
+	ft_push_back(a, b);
+	ft_part_a(a, b);
+	ft_part_b(a, b);
+	ft_empty_b(a, b);
+	ft_sort_to_bot(a);
+	if (ft_unsort(*a))
+		ft_quick(a, b);
+
+// 	ft_printf("1 Loop Done\n\n");
+// 	ft_print_stack(*a);
+// 	ft_print_stack(*b);
+// 	ft_push_back(a, b);
+// 	ft_part_a(a, b);
+// 	ft_part_b(a, b);
+// 	ft_empty_b(a, b);
+// 	ft_sort_to_bot(a);
+// ft_printf("2 Loop Done\n\n");
+// 	ft_print_stack(*a);
+// 	ft_print_stack(*b);
+// 	ft_push_back(a, b);
+// 	ft_part_a(a, b);
+// 	ft_part_b(a, b);
+// 	ft_empty_b(a, b);
+// 	ft_sort_to_bot(a);
+// ft_printf("3 Loop Done\n\n");
+// 	ft_print_stack(*a);
+// 	ft_print_stack(*b);
+// 	ft_push_back(a, b);
+// 	ft_part_a(a, b);
+// 	ft_part_b(a, b);
+// 	ft_empty_b(a, b);
+// 	ft_sort_to_bot(a);
+// ft_printf("4 Loop Done\n\n");
+// 	ft_print_stack(*a);
+// 	ft_print_stack(*b);
+// 	ft_push_back(a, b);
+// 	ft_part_a(a, b);
+// 	ft_part_b(a, b);
+// 	ft_empty_b(a, b);
+// 	ft_sort_to_bot(a);
+// ft_printf("5 Loop Done\n\n");
+// 	ft_print_stack(*a);
+// 	ft_print_stack(*b);
+// 	ft_push_back(a, b);
+// 	ft_part_a(a, b);
+// 	ft_part_b(a, b);
+// 	ft_empty_b(a, b);
+// 	ft_sort_to_bot(a);
+// ft_printf("6 Loop Done\n\n");
+// 	ft_print_stack(*a);
+// 	ft_print_stack(*b);
 }
 
 /* TODO: QUICKSORT!
@@ -62,3 +157,7 @@ void	ft_part_b(t_stack **a, t_stack **b)
 	2) Make a copy of to_top_a for use with B and have it go one step at a
 	time, so I can check for any quick wins.
 */
+	// ft_printf("----A----\n");
+	// ft_print_stack(*a);
+	// ft_printf("----B----\n");
+	// ft_print_stack(*b);
