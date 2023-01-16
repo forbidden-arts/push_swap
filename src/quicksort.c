@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 12:01:43 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:03:30 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ void	ft_part_a(t_stack **a, t_stack **b)
 	{
 		if (!ft_find_fwd(*a, pivot))
 			ft_do_op(a, b, PB);
-		else
+		else if (ft_unsort(*a) == ft_s_size(*a))
 			ft_smart_rotate_a(a, b, pivot);
+		else
+			ft_do_op(a, b, RA);
 	}
 }
 
@@ -43,16 +45,17 @@ void	ft_part_b(t_stack **a, t_stack **b)
 	if (ft_s_size(*b) < STACKMAX)
 		return ;
 	pivot = (ft_find_min(*b) + ft_find_max(*b)) / 2 + 1 -(ft_s_size(*b) % 2);
+	if (ft_s_size(*b) > STACKMAX * 2)
+		pivot += pivot / 2;
 	while (ft_find_max(*b) > pivot)
 	{
-		ft_opportunity(a, b);
+		if (ft_opportunity_b(a, b))
+			pivot += 1;
 		if (!ft_find_fwd_a(*b, pivot))
 			ft_do_op(a, b, PA);
 		else
 			ft_smart_rotate_b(a, b, ft_find_max(*b));
 	}
-	if (ft_s_size(*b) > STACKMAX)
-		ft_part_b(a, b);
 }
 
 void	ft_push_back(t_stack **a, t_stack **b)
@@ -87,7 +90,7 @@ void	ft_empty_b(t_stack **a, t_stack **b)
 {
 	while (ft_s_size(*b))
 	{
-		if (ft_opportunity(a, b))
+		if (ft_opportunity_b(a, b))
 			continue ;
 		else if ((*b)->index == ft_find_max(*b))
 			ft_do_op(a, b, PA);
@@ -98,9 +101,6 @@ void	ft_empty_b(t_stack **a, t_stack **b)
 
 void	ft_quick(t_stack **a, t_stack **b)
 {
-	// ft_printf("***Quick Init***\n\n");
-	// ft_print_stack(*a);
-	// ft_print_stack(*b);
 	// ft_printf("***Pushback Init***\n\n");
 	// ft_print_stack(*a);
 	// ft_print_stack(*b);

@@ -6,13 +6,13 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:48:44 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 11:41:53 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 15:03:25 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_opportunity(t_stack **a, t_stack **b)
+int	ft_opportunity_b(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 

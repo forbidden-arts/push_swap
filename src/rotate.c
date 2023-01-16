@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:37:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 12:28:13 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:04:37 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 /* Makes the shortest possible move to bring that number to the top. */
 void	ft_smart_rotate_a(t_stack **a, t_stack **b, int i)
 {
+	t_stack	*tmp;
+
+	tmp = ft_stack_last(*b);
 	if (ft_find_fwd(*a, i) <= ft_find_bwd(*a, i))
 		ft_do_op_n(a, b, RA, ft_find_fwd(*a, i));
 	else
@@ -58,16 +61,14 @@ void	ft_sort_to_bot(t_stack **a, t_stack **b)
 	t_stack	*tmp;
 
 	tmp = ft_stack_last(*a);
-	// ft_printf("---Moving Sort to Bottom---\n");
 	while (!tmp->sorted)
 	{
-		// if ((*b)->index != ft_find_max(*b))
-		// {
-		// 	ft_do_op(a, b, RRR);
-		// }
-		// else
+		if ((*b)->index != ft_find_max(*b))
+		{
+			ft_do_op(a, b, RRR);
+		}
+		else
 			ft_do_op(a, b, RRA);
 		tmp = ft_stack_last(*a);
 	}
-	// ft_printf("---And, We're Done---\n");
 }
