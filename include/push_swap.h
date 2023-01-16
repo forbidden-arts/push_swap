@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 11:59:30 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 12:18:37 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int		ft_match(char *a, char *b);
 /*		Sort					*/
 void	ft_sort_control(t_stack **a, t_stack **b);
 void	ft_sort_mini_a(t_stack **a, t_stack **b);
-void	ft_sort_mini_b(t_stack **a, t_stack **b);
 void	ft_sort_small(t_stack **a, t_stack **b);
 
 /*		Rotate					*/

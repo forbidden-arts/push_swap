@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:37:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 12:07:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 12:28:13 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,16 @@ void	ft_sort_to_bot(t_stack **a, t_stack **b)
 	t_stack	*tmp;
 
 	tmp = ft_stack_last(*a);
+	// ft_printf("---Moving Sort to Bottom---\n");
 	while (!tmp->sorted)
 	{
-		if ((*b)->index != ft_find_max(*b))
-		{
-			ft_do_op(a, b, RRR);
-		}
-		else
-			ft_do_op(a, NULL, RRA);
+		// if ((*b)->index != ft_find_max(*b))
+		// {
+		// 	ft_do_op(a, b, RRR);
+		// }
+		// else
+			ft_do_op(a, b, RRA);
 		tmp = ft_stack_last(*a);
 	}
+	// ft_printf("---And, We're Done---\n");
 }
