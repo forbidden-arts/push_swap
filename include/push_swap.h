@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 15:03:25 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:30:43 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	ft_quick(t_stack **a, t_stack **b);
 
 /*		Shortcuts				*/
 int		ft_opportunity_b(t_stack **a, t_stack **b);
+void	ft_q_init(t_stack **a, t_stack **b);
 
 /*		Misc					*/
 void	ft_print_stack(t_stack *a);

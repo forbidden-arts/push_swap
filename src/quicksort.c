@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 16:03:30 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:28:00 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	ft_part_a(t_stack **a, t_stack **b)
 	{
 		if (!ft_find_fwd(*a, pivot))
 			ft_do_op(a, b, PB);
-		else if (ft_unsort(*a) == ft_s_size(*a))
-			ft_smart_rotate_a(a, b, pivot);
 		else
 			ft_do_op(a, b, RA);
 	}

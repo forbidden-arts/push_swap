@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 19:31:06 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:27:28 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,3 @@ int	ft_find_min(t_stack *stack)
 	}
 	return (min);
 }
-
-/* Not currently used. */
-// void	ft_bucketize(t_stack *stack, int buckets)
-// {
-// 	int	size;
-
-// 	size = ft_s_size(stack);
-// 	while (stack->next)
-// 	{
-// 		stack->bucket = (stack->index / (size / buckets + 1) + 1);
-// 		stack = stack->next;
-// 	}
-// 	stack->bucket = (stack->index / (size / buckets + 1) + 1);
-// }
