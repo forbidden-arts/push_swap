@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:00:22 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/12 11:45:01 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 11:28:38 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,55 +85,3 @@ void	ft_sort_small(t_stack **a, t_stack **b)
 		if (ft_find_next(*a, (*b)->index))
 			ft_top_a(a, ft_find_next(*a, (*b)->index));
 }
-
-/*  WORKS, BUT TOO MANY ACTIONS.
-void	ft_sort_stacks(t_stack **a, t_stack **b)
-{
-	int		i;
-
-	i = 1;
-	while (!ft_is_sorted(*a) && ft_s_size(*a) > 3)
-	{
-		if (!ft_find_last(*a, i))
-			i++;
-		if (ft_find_next(*a, i) + 1 < ft_s_size(*a) - ft_find_last(*a, i))
-			ft_do_op_n(a, b, RA, ft_find_next(*a, i) - 1);
-		else
-			ft_do_op_n(a, b, RRA, ft_s_size(*a) - ft_find_last(*a, i));
-		ft_do_op(a, b, PB);
-	}
-	ft_sort_mini_a(a);
-	while ((*b))
-		ft_push_back(a, b);
-	while (!ft_is_sorted(*a))
-	{
-		if (ft_get_pos(*a, 1) + 1 > (ft_s_size(*a) / 2)
-			&& ft_s_size(*a) < 6)
-			ft_do_op(a, b, RA);
-		else
-			ft_do_op(a, b, RRA);
-	}
-}
-
-void	ft_push_back(t_stack **a, t_stack **b)
-{
-	t_stack	*tmp;
-
-	tmp = ft_stack_last(*a);
-	if (ft_s_size(*b) == 2 && (*b)->index > (*b)->next->index)
-		ft_do_op(a, b, SB);
-	if (ft_isbig(*a, (*b)->index))
-	{
-		while (!ft_is_sorted(*a))
-			ft_do_op(a, b, RRA);
-		ft_do_op(a, b, PA);
-		ft_do_op(a, b, RA);
-	}
-	else if ((*b) && tmp->index < (*a)->index && tmp->index > (*b)->index)
-		ft_do_op(a, b, RRA);
-	else if ((*b)->index < (*a)->index)
-		ft_do_op(a, b, PA);
-	else if ((*a)->index < (*b)->index)
-		ft_do_op(a, b, RA);
-}
-*/

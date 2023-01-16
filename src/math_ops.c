@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 19:45:37 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 10:51:13 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_find_bwd(t_stack *stack, int b)
 		return (0);
 	i = 0;
 	tmp = stack;
-	while (stack->next)
+	while (stack)
 	{
 		if (stack->index <= b && !stack->sorted)
 			i = stack->index;

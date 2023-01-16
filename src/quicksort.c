@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:54:52 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/12 16:26:08 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 12:01:43 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_part_b(t_stack **a, t_stack **b)
 	int	pivot;
 
 	if (ft_unsort(*a) < ft_s_size(*a))
-		ft_sort_to_bot(a);
+		ft_sort_to_bot(a, b);
 	if (ft_s_size(*b) < STACKMAX)
 		return ;
 	pivot = (ft_find_min(*b) + ft_find_max(*b)) / 2 + 1 -(ft_s_size(*b) % 2);
@@ -98,17 +98,27 @@ void	ft_empty_b(t_stack **a, t_stack **b)
 
 void	ft_quick(t_stack **a, t_stack **b)
 {
+	// ft_printf("***Quick Init***\n\n");
+	// ft_print_stack(*a);
+	// ft_print_stack(*b);
+	// ft_printf("***Pushback Init***\n\n");
+	// ft_print_stack(*a);
+	// ft_print_stack(*b);
 	ft_push_back(a, b);
+	// ft_printf("***Partitioning A***\n\n");
+	// ft_print_stack(*a);
+	// ft_print_stack(*b);
 	ft_part_a(a, b);
+	// ft_printf("***Partitioning B***\n\n");
 	// ft_print_stack(*a);
 	// ft_print_stack(*b);
 	ft_part_b(a, b);
+	// ft_printf("***Emptying B***\n\n");
 	// ft_print_stack(*a);
 	// ft_print_stack(*b);
 	ft_empty_b(a, b);
-	// ft_print_stack(*a);
-	// ft_print_stack(*b);
-	ft_sort_to_bot(a);
+	// ft_printf("***Moving Sort to Bottom***\n\n");
+	ft_sort_to_bot(a, b);
 	if (ft_unsort(*a))
 		ft_quick(a, b);
 }

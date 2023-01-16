@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/12 16:10:02 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 11:59:30 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	ft_sort_small(t_stack **a, t_stack **b);
 void	ft_smart_rotate_a(t_stack **a, t_stack **b, int i);
 void	ft_smart_rotate_b(t_stack **a, t_stack **b, int i);
 void	ft_top_a(t_stack **stack, int i);
-void	ft_sort_to_bot(t_stack **stack);
+void	ft_sort_to_bot(t_stack **a, t_stack **b);
 
 /*		Math Ops				*/
 int		ft_find_fwd(t_stack *stack, int b);
