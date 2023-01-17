@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 10:40:01 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 16:27:28 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 19:53:01 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,16 @@ int	ft_find_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min);
+}
+
+/* Returns the index of a given position. */
+int	ft_get_pos_idx(t_stack *stack, int i)
+{
+	while (--i)
+	{
+		if (!stack)
+			return (0);
+		stack = stack->next;
+	}
+	return (stack->index);
 }

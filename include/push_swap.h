@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 12:22:54 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 16:30:43 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/17 12:01:07 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_stack	*ft_stack_sec_last(t_stack *stack);
 void	ft_assign_index(t_stack *stack);
 int		ft_find_max(t_stack *stack);
 int		ft_find_min(t_stack *stack);
-// int		ft_stack_avg(t_stack *stack);
+int		ft_get_pos_idx(t_stack *stack, int i);
 
 /*		Stack Actions			*/
 void	ft_do_op(t_stack **a, t_stack **b, char *op);
@@ -92,7 +92,6 @@ void	ft_sort_mini_a(t_stack **a, t_stack **b);
 void	ft_sort_small(t_stack **a, t_stack **b);
 
 /*		Rotate					*/
-void	ft_smart_rotate_a(t_stack **a, t_stack **b, int i);
 void	ft_smart_rotate_b(t_stack **a, t_stack **b, int i);
 void	ft_top_a(t_stack **stack, int i);
 void	ft_sort_to_bot(t_stack **a, t_stack **b);
@@ -113,7 +112,6 @@ void	ft_quick(t_stack **a, t_stack **b);
 
 /*		Shortcuts				*/
 int		ft_opportunity_b(t_stack **a, t_stack **b);
-void	ft_q_init(t_stack **a, t_stack **b);
 
 /*		Misc					*/
 void	ft_print_stack(t_stack *a);

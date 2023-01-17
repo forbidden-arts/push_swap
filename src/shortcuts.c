@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:48:44 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 17:10:49 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/17 11:58:32 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,24 @@ int	ft_opportunity_b(t_stack **a, t_stack **b)
 	return (0);
 }
 
-void	ft_q_init(t_stack **a, t_stack **b)
-{
-	int	pivot;
+/* For later: Need to shave 10% off the move count, will revisit if 
+I have spare time.
 
-	ft_print_stack(*a);
-	if (ft_s_size(*b) || (*a)->pushed)
-		return ;
-	pivot = ((ft_find_min(*a) + ft_find_max(*a)) / 2 + 1 -(ft_s_size(*a) % 2));
-	while (ft_find_min(*a) < pivot)
-	{
-		if (!ft_find_fwd(*a, pivot))
-			ft_do_op(a, b, PB);
-		else
-			ft_smart_rotate_a(a, b, pivot);
-	}
-}
+*/
+// void	ft_q_init(t_stack **a, t_stack **b)
+// {
+// 	int	pivot;
+
+// 	if (ft_s_size(*b) || (*a)->pushed)
+// 		return ;
+// 	pivot = ((ft_find_min(*a) + ft_find_max(*a)) / 2 + 1 -(ft_s_size(*a) % 2));
+// 	while (ft_find_min(*a) < pivot)
+// 	{
+// 		if (!ft_find_fwd(*a, pivot))
+// 			ft_do_op(a, b, PB);
+// 		else
+// 			ft_smart_rotate_a(a, b, pivot);
+// 	}
+// 	ft_print_stack(*a);
+// 	ft_print_stack(*b);
+// }

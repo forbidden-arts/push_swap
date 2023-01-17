@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 10:41:03 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 16:46:38 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:49:49 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	ft_find_bwd(t_stack *stack, int b)
 	return (ft_s_size(tmp) - ft_get_pos(tmp, i) + 1);
 }
 
+/* Finds the next largest index after the given and returns number of steps. */
 int	ft_find_next(t_stack *stack, int b)
 {
 	int	i;

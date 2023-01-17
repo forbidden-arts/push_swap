@@ -6,35 +6,44 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:37:53 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 17:09:45 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/17 11:59:12 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Makes the shortest possible move to bring that number to the top. */
-void	ft_smart_rotate_a(t_stack **a, t_stack **b, int i)
-{
-	t_stack	*tmp;
+/* Initialized only once, before qsort, to cut down on later operations. */
+// void	ft_smart_rotate_a(t_stack **a, t_stack **b, int i)
+// {
+// 	int		seek;
+// 	// t_stack	*tmp;
 
-	tmp = ft_stack_last(*b);
-	if (ft_find_fwd(*a, i) <= ft_find_bwd(*a, i))
-	{
-		if (ft_s_size(*b) > 1 && (*a)->index < (*b)->index)
-			ft_do_op(a, b, RR);
-		else
-			ft_do_op(a, b, RA);
-	}
-	else
-	{
-		if (ft_s_size(*b) > 1 && (*a)->index > tmp->index)
-			ft_do_op(a, b, RRR);
-		else
-			ft_do_op(a, b, RRA);
-	}
-	ft_print_stack(*a);
-	ft_print_stack(*b);
-}
+// 	// tmp = NULL;
+// 	// if (ft_s_size(*b) > 1)
+// 	// 	tmp = ft_stack_sec_last(*b);
+// 	// if (ft_find_fwd(*a, i) <= ft_find_bwd(*a, i))
+// 		seek = ft_get_pos_idx(*a, ft_find_fwd(*a, i) + 1);
+// 		// ft_printf("seek: %d\n", seek);
+// 	// else
+// 	// 	seek = ft_get_pos_idx(*a, ft_s_size(*a) - ft_find_bwd(*a, i) + 1);
+// 	// ft_printf("Seeking: %d\n", seek);
+// 	// if (ft_find_fwd(*a, i) <= ft_find_bwd(*a, i))
+// 	// {
+// 		if (ft_s_size(*b) > 1 &&
+// 			// (seek < (*b)->index || (*b)->index < (*b)->next->index))
+// 			(seek < (*b)->index && seek > (*b)->next->index))
+// 			ft_do_op(a, b, RR);
+// 		else
+// 			ft_do_op(a, b, RA);
+// 	// }
+// 	// else
+// 	// {
+// 	// 	if (tmp && ((*b)->index < tmp->next->index))
+// 	// 		ft_do_op(a, b, RRR);
+// 	// 	else
+// 	// 		ft_do_op(a, b, RRA);
+// 	// }
+// }
 
 /* B-Smart happens 1 step at a time to allow for opportunistic moves. */
 void	ft_smart_rotate_b(t_stack **a, t_stack **b, int i)
