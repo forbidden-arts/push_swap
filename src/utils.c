@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 06:55:34 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/10 18:34:50 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/17 12:33:49 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ long	ft_stk_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (sum >= long_max / 10 && str[i + 1] > 7 && sign == 1)
-			return (-1);
+			return ((long)INT_MAX + 1);
 		else if (sum >= long_max / 10 && str[i + 1] > 8 && sign == -1)
-			return (0);
+			return (INT_MIN - 1);
 		sum = 10 * sum - (str[i++] - '0');
 	}
 	return (sum * -sign);

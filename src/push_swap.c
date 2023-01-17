@@ -6,7 +6,7 @@
 /*   By: dpalmer <dpalmer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:10:20 by dpalmer           #+#    #+#             */
-/*   Updated: 2023/01/16 19:51:56 by dpalmer          ###   ########.fr       */
+/*   Updated: 2023/01/17 12:40:52 by dpalmer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1)
-		return (0);
-	ft_stk_chk_valid(argv);
-	a = ft_build_stack(a, argv);
-	ft_chk_dup_stack(a);
-	ft_sort_control(&a, &b);
+	if (argc > 1)
+	{
+		a = NULL;
+		b = NULL;
+		ft_stk_chk_valid(argv);
+		a = ft_build_stack(a, argv);
+		ft_chk_dup_stack(a);
+		ft_sort_control(&a, &b);
+	}
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
