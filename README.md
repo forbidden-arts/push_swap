@@ -61,7 +61,7 @@ There are some limitations that are imposed by the project:
 
 The numbers must be signed integers and must be unique as stated in the PRD. The program will handle several thousands of numbers (tested up to 10k), but it will take a _long time_. There is definitely room for efficiency improvements, but success was determined by fewest moves, not speed.
 
-**I am tempted to revisit this later, as I cannot get it out of my head, and I think I can shave 20% off.**
+# I am tempted to revisit this later, as I cannot get it out of my head, and I think I can shave 20% off.
 
 ### 📝 License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
