@@ -64,4 +64,4 @@ The numbers must be signed integers and must be unique as stated in the PRD. The
 # I am tempted to revisit this later, as I cannot get it out of my head, and I think I can shave 20% off.
 
 ### 📝 License
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+Go nuts.
