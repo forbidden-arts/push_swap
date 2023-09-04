@@ -1,15 +1,15 @@
 # push_swap
-![dpalmer's 42 stats](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/stats?cursusId=21&coalitionId=271)
+<!-- ![dpalmer's 42 stats](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/stats?cursusId=21&coalitionId=271) -->
 
 ![Achievement Unlocked!](./assets/push_swape.png)
 
-![dpalmer's 42 push_swap Score](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/project/2909197)
+<!-- ![dpalmer's 42 push_swap Score](https://badge42.vercel.app/api/v2/cli5pb141011308mh1fmi5qrq/project/2909197) -->
 
 ## 🤓 Overview
 Remember the [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi)? This challenge is in a similar vein, but with some interesting twists:
 1. There's only two stacks
 2. The stacks rotate
-3. It's okay if a larger number is above a smaller to start.
+3. It's okay if a larger number is stacked above a smaller one.
 
 ## 🧐 So What's the Deal?
 - **`sa`** : **swap a** - Swap the two numbers on the top of stack A.
